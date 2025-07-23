@@ -1,10 +1,22 @@
+package addressapp
+import javafx.fxml.FXMLLoader
 import scalafx.application.JFXApp3
 import scalafx.application.JFXApp3.PrimaryStage
+import scalafx.scene.Scene
+import scalafx.Includes.*
 
-object MyApp extends JFXApp3:
+import java.net.URL
 
-  override def start(): Unit =
-    stage = new PrimaryStage()
+object MainApp extends JFXApp3:
+  override def start(): Unit = {
+    val rootLayoutResource: URL = getClass.getResource("/addressapp/view/RootLayout.fxml")
+    val loader = new FXMLLoader(rootLayoutResource)
+    val rootLayout = loader.load[javafx.scene.layout.BorderPane]()
+    stage = new PrimaryStage():
+      title = "My ScalaFX Application"
+      scene = new Scene:
+        root = rootLayout
+  }
+  //      stylesheets = Seq(getClass.getResource("/styles.css").toExternalForm)
 
-
-end MyApp
+end MainApp
