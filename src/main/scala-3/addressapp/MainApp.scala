@@ -35,7 +35,14 @@ object MainApp extends JFXApp3:
     val loader = new FXMLLoader(welcome)
     val pane = loader.load[javafx.scene.layout.AnchorPane]()
     rootPane.foreach(_.setCenter(pane)) // Set the center of the root pane to the welcome view
-
+    
+  // show the main window in the center of the root pane
+  def showMainWindow(): Unit =
+    val mainWindow = getClass.getResource("/addressapp/view/MainWindow.fxml")
+    val loader = new FXMLLoader(mainWindow)
+    val pane = loader.load[javafx.scene.layout.AnchorPane]()
+    rootPane.foreach(_.setCenter(pane)) // Set the center of the root pane to the main window view
+  
   def showAbout(): Boolean =
       val about = getClass.getResource("/addressapp/view/About.fxml")
       val loader = new FXMLLoader(about)
