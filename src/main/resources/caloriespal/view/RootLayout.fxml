@@ -19,11 +19,6 @@
                   </MenuItem>
             </items>
           </Menu>
-          <Menu text="_Edit">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
-            </items>
-          </Menu>
           <Menu text="_Help">
             <items>
               <MenuItem onAction="#handleAbout" text="_About" />
