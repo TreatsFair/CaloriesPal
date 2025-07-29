@@ -2,20 +2,32 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.effect.Blend?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="650.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="caloriespal.view.MainWindowController">
+<AnchorPane prefHeight="650.0" prefWidth="1200.0" stylesheets="@../../styles/mainwindow.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="caloriespal.view.MainWindowController">
    <children>
-      <VBox layoutX="64.0" layoutY="125.0" prefHeight="650.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="1000.0" AnchorPane.topAnchor="0.0">
+      <VBox layoutX="64.0" layoutY="125.0" prefHeight="650.0" prefWidth="211.0" styleClass="vbox-container" stylesheets="@../../styles/mainwindow.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="985.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CaloriesPal" textAlignment="CENTER" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#eaffea" height="68.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="200.0" />
-            <Button mnemonicParsing="false" prefHeight="56.0" prefWidth="242.0" text="Dashboard">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="CaloriesPal">
+               <font>
+                  <Font name="French Script MT" size="12.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="30.0" left="22.0" top="30.0" />
+               </VBox.margin></Text>
+            <Separator prefHeight="15.0" prefWidth="215.0">
+               <effect>
+                  <Blend />
+               </effect>
+            </Separator>
+            <Button fx:id="dashboardButton" mnemonicParsing="false" onAction="#handleDashboardClick" prefHeight="56.0" prefWidth="242.0" styleClass="button sidebar-button" text="Dashboard">
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>
@@ -27,7 +39,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="10.0" layoutY="98.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="242.0" text="Food Log">
+            <Button fx:id="foodLogButton" layoutX="10.0" layoutY="98.0" mnemonicParsing="false" onAction="#handleFoodLogClick" prefHeight="59.0" prefWidth="225.0" styleClass="side" text="Food Log">
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>
@@ -39,36 +51,36 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="56.0" prefWidth="242.0" text="Progress">
+            <Button fx:id="progressButton" mnemonicParsing="false" onAction="#handleProgressClick" prefHeight="56.0" prefWidth="242.0" text="Progress">
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>
                <graphic>
-                  <ImageView fitHeight="39.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="39.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true" translateX="-2.0">
                      <image>
                         <Image url="@../../images/logs_4350882.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="56.0" prefWidth="242.0" text="Workout">
+            <Button fx:id="workoutButton" mnemonicParsing="false" onAction="#handleWorkoutClick" prefHeight="56.0" prefWidth="242.0" text="Workout">
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>
                <graphic>
-                  <ImageView fitHeight="39.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="39.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true" translateX="4.0">
                      <image>
                         <Image url="@../../images/exercise-routine_12646159.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="56.0" prefWidth="242.0" text="Profile">
+            <Button fx:id="profileButton" mnemonicParsing="false" onAction="#handleProfileClick" prefHeight="56.0" prefWidth="242.0" text="Profile">
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>
                <graphic>
-                  <ImageView fitHeight="39.0" fitWidth="228.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="39.0" fitWidth="228.0" pickOnBounds="true" preserveRatio="true" translateX="3.0">
                      <image>
                         <Image url="@../../images/profile_4372360.png" />
                      </image>

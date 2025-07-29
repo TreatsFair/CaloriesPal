@@ -1,0 +1,75 @@
+/* Set full background for the app */
+.root {
+    -fx-font-family: "Segoe UI", sans-serif;
+}
+
+@font-face {
+    font-family: "Black Mango";
+    src: url("/fonts/black-mango-regular.ttf");
+    font-weight: bold;
+}
+
+/* Text title: CaloriesPal */
+.text {
+    -fx-font-family: "Black Mango";
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-fill: black;
+    -fx-text-alignment: center;
+    -fx-padding: 20 0 10 0;
+}
+
+.title {
+    -fx-font-family: "Black Mango";
+    -fx-font-size: 30px;
+    -fx-text-fill: black;
+    -fx-padding: 10 0 10 0;
+    -fx-text-alignment: center;
+}
+
+/* Highlight bar rectangle behind top item */
+.rectangle {
+    -fx-fill: #e8f5e9;
+    -fx-arc-width: 10px;
+    -fx-arc-height: 10px;
+    -fx-stroke: transparent;
+}
+
+/* Style for all buttons in the sidebar */
+.button {
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
+    -fx-font-size: 16px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-graphic-text-gap: 12px;
+    -fx-cursor: hand;
+    -fx-padding: 10 15 10 15;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+}
+
+/* Hover effect */
+.button:hover {
+    -fx-background-color: #c8e6c9; /* Light green hover */
+}
+
+/* When clicked */
+.button:pressed {
+    -fx-background-color: #a5d6a7;
+    -fx-text-fill: black;
+}
+
+/* ImageView inside buttons */
+.image-view {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 3, 0.2, 0, 1);
+}
+
+.active {
+    -fx-background-color: #a5d6a7;
+    -fx-font-weight: bold;
+}
+
+.vbox-container {
+    -fx-background-color: #eeeeee;
+    -fx-background-radius: 10px;
+}

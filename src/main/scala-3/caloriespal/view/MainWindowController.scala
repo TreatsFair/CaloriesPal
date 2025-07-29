@@ -1,10 +1,52 @@
 package caloriespal.view
 
-
 import javafx.fxml.FXML
-import caloriespal.MainApp
+import javafx.scene.control.Button
 
-@FXML
-class MainWindowController
-  // This controller is responsible for the main window of the application.
-  // It can be used to manage the main layout, handle events, and interact with other controllers.
+class MainWindowController:
+
+  @FXML private var dashboardButton: Button = _
+  @FXML private var foodLogButton: Button = _
+  @FXML private var progressButton: Button = _
+  @FXML private var workoutButton: Button = _
+  @FXML private var profileButton: Button = _
+
+  private val allNavButtons = Seq(
+    () => dashboardButton,
+    () => foodLogButton,
+    () => progressButton,
+    () => workoutButton,
+    () => profileButton
+  )
+
+  private def clearActiveStyles(): Unit =
+    allNavButtons.foreach(btn => btn().getStyleClass.remove("active"))
+
+  @FXML def handleDashboardClick(): Unit =
+    clearActiveStyles()
+    dashboardButton.getStyleClass.add("active")
+  // TODO: Load dashboard content into the main area
+
+  @FXML def handleFoodLogClick(): Unit =
+    clearActiveStyles()
+    foodLogButton.getStyleClass.add("active")
+// TODO: Load food log UI
+
+  @FXML def handleProgressClick(): Unit =
+    clearActiveStyles()
+    progressButton.getStyleClass.add("active")
+
+  @FXML def handleWorkoutClick(): Unit =
+    clearActiveStyles()
+    workoutButton.getStyleClass.add("active")
+
+  @FXML def handleProfileClick(): Unit =
+    clearActiveStyles()
+    profileButton.getStyleClass.add("active")
+
+  @FXML def handleLogout(): Unit =
+    // Logic to handle logout
+    clearActiveStyles()
+    dashboardButton.getStyleClass.add("active")
+
+

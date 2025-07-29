@@ -8,30 +8,30 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="650.0" prefWidth="1200.0" styleClass="background" stylesheets="@login.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="caloriespal.view.LoginController">
+<AnchorPane prefHeight="650.0" prefWidth="1200.0" styleClass="background" stylesheets="@../../styles/login.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="caloriespal.view.LoginController">
     <children>
-        <Pane layoutX="697.0" layoutY="86.0" prefHeight="439.0" prefWidth="407.0" styleClass="pane" stylesheets="@login.css">
+        <Pane layoutX="697.0" layoutY="86.0" prefHeight="439.0" prefWidth="407.0" styleClass="login-pane" stylesheets="@../../styles/login.css">
             <children>
-                <Label layoutX="152.0" layoutY="43.0" text="Login" textAlignment="CENTER">
+                <Label layoutX="152.0" layoutY="43.0" styleClass="form-title" text="Login" textAlignment="CENTER">
                     <font>
                         <Font name="STCaiyun" size="45.0" />
                     </font>
                 </Label>
-                <TextField fx:id="emailField" layoutX="74.0" layoutY="147.0" prefHeight="34.0" prefWidth="259.0" promptText="sample@gmail.com" />
-                <PasswordField fx:id="passwordField" layoutX="74.0" layoutY="222.0" prefHeight="34.0" prefWidth="259.0" />
-                <Label layoutX="74.0" layoutY="130.0" text="Email">
+                <TextField fx:id="emailField" layoutX="74.0" layoutY="147.0" prefHeight="34.0" prefWidth="259.0" promptText="sample@gmail.com" styleClass="input-field" />
+                <PasswordField fx:id="passwordField" layoutX="74.0" layoutY="222.0" prefHeight="34.0" prefWidth="259.0" styleClass="input-field" />
+                <Label layoutX="74.0" layoutY="126.0" styleClass="form-label" text="Email">
                     <font>
                         <Font name="OCR A Extended" size="13.0" />
                     </font>
                 </Label>
-                <Label layoutX="74.0" layoutY="205.0" text="Password">
+                <Label layoutX="74.0" layoutY="201.0" styleClass="form-label" text="Password">
                     <font>
                         <Font name="OCR A Extended" size="13.0" />
                     </font>
                 </Label>
-                <Button fx:id="loginButton" defaultButton="true" layoutX="74.0" layoutY="321.0" onAction="#handleLogin" pickOnBounds="false" prefHeight="40.0" prefWidth="259.0" text="Login" />
-                <Button fx:id="registerButton" layoutX="74.0" layoutY="371.0" onAction="#handleRegister" prefHeight="40.0" prefWidth="259.0" text="Register" />
-                <Label fx:id="logoutMessageLabel" layoutX="22.0" layoutY="14.0" prefHeight="17.0" prefWidth="333.0" styleClass="logoutMsg" stylesheets="@login.css" />
+                <Button fx:id="loginButton" defaultButton="true" layoutX="74.0" layoutY="321.0" onAction="#handleLogin" pickOnBounds="false" prefHeight="40.0" prefWidth="259.0" styleClass="form-button" text="Login" />
+                <Button fx:id="registerButton" layoutX="74.0" layoutY="371.0" onAction="#handleRegister" prefHeight="40.0" prefWidth="259.0" styleClass="form-button-return" text="Register" />
+                <Label fx:id="logoutMessageLabel" layoutX="22.0" layoutY="14.0" prefHeight="17.0" prefWidth="333.0" styleClass="logoutMsg" stylesheets="@../../styles/login.css" />
             </children>
         </Pane>
     </children>

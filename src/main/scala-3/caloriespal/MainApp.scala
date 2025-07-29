@@ -9,6 +9,7 @@ import scalafx.scene.Scene
 import scalafx.Includes.*
 import scalafx.stage.Modality.ApplicationModal
 import scalafx.stage.Stage
+import scalafx.scene.text.Font
 
 import java.net.URL
 
@@ -21,6 +22,8 @@ object MainApp extends JFXApp3:
     val loader = new FXMLLoader(rootLayoutResource)
     val rootLayout = loader.load[javafx.scene.layout.BorderPane]()
     rootPane = Option(loader.getRoot[javafx.scene.layout.BorderPane]())
+    Font.loadFont(getClass.getResource("/fonts/black-mango-regular.ttf").toExternalForm, 14)
+
     stage = new PrimaryStage():
       title = "CaloriesPal"
       scene = new Scene:
