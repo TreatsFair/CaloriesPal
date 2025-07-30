@@ -48,8 +48,8 @@ object MainApp extends JFXApp3:
     rootPane.foreach(_.setCenter(pane))
 
   /** After login success, go to main dashboard */
-  def showMainWindow(): Unit =
-    val mainResource = getClass.getResource("/caloriespal/view/MainWindow.fxml")
+  def showDashboard(): Unit =
+    val mainResource = getClass.getResource("/caloriespal/view/Dashboard.fxml")
     val mainLoader = new FXMLLoader(mainResource)
     val pane = mainLoader.load[javafx.scene.layout.AnchorPane]()
     rootPane.foreach(_.setCenter(pane))

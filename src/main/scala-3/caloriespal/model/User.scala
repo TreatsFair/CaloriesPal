@@ -8,6 +8,8 @@ case class User(email: String, password: String, userName: String)
 
 object User extends Database {
 
+  var currentUser: Option[User] = None
+
   // Use a non-reserved table name: "Users"
    def initializeTable(): Unit =
     if !hasTable("Users") then

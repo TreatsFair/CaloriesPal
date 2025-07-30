@@ -1,6 +1,7 @@
 /* Set full background for the app */
 .root {
     -fx-font-family: "Segoe UI", sans-serif;
+    -fx-background-image: url("/images/greengradientbackground.png");
 }
 
 @font-face {
@@ -8,6 +9,14 @@
     src: url("/fonts/black-mango-regular.ttf");
     font-weight: bold;
 }
+
+.welcome-text {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #000000; /* Green */
+    -fx-font-family: "Black Mango";
+}
+
 
 /* Text title: CaloriesPal */
 .text {
@@ -50,12 +59,12 @@
 
 /* Hover effect */
 .button:hover {
-    -fx-background-color: #c8e6c9; /* Light green hover */
+    -fx-background-color: #c0c6be; /* Light green hover */
 }
 
 /* When clicked */
 .button:pressed {
-    -fx-background-color: #a5d6a7;
+    -fx-background-color: #afb5ae;
     -fx-text-fill: black;
 }
 
@@ -65,7 +74,7 @@
 }
 
 .active {
-    -fx-background-color: #a5d6a7;
+    -fx-background-color: #aebab1;
     -fx-font-weight: bold;
 }
 
