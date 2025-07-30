@@ -33,7 +33,7 @@
                         <Font name="OCR A Extended" size="13.0" />
                     </font>
                 </Label>
-                <TextField fx:id="emailField" layoutX="74.0" layoutY="201.0" prefHeight="34.0" prefWidth="259.0" styleClass="text-field" />
+                <TextField fx:id="emailField" layoutX="74.0" layoutY="201.0" prefHeight="34.0" prefWidth="259.0" promptText="sample@gmail.com" styleClass="text-field" />
 
                 <!-- Password -->
                 <Label layoutX="74.0" layoutY="247.0" styleClass="form-label" text="Password">

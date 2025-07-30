@@ -55,7 +55,7 @@
 .form-button {
     -fx-font-family: "Black Mango";
     -fx-font-size: 14px;
-    -fx-text-fill: white;
+    -fx-text-fill: black;
     -fx-background-color: #66bb6a;
     -fx-background-radius: 8px;
     -fx-cursor: hand;
@@ -72,10 +72,10 @@
 
 /* register button */
 .form-button-secondary {
-    -fx-background-color: gray;
+    -fx-background-color: #9e9d9d;
     -fx-font-family: "Black Mango";
     -fx-font-size: 14px;
-    -fx-text-fill: white;
+    -fx-text-fill: black;
     -fx-background-radius: 10px;
     -fx-border-color: transparent;
     -fx-border-radius: 10px;
@@ -86,7 +86,7 @@
 
 /* Hover effect */
 .form-button-secondary:hover {
-    -fx-background-color: #5e5e5e;
+    -fx-background-color: #7e7e7e;
 }
 
 /* Clicked (pressed) effect */
@@ -100,17 +100,17 @@
     -fx-border-radius: 10px;
     -fx-background-radius: 8px;
     -fx-font-size: 14px;
-    -fx-text-fill: white;
+    -fx-text-fill: black;
     -fx-border: 0px;
     -fx-cursor: hand;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 3, 0.1, 0, 1);
     -fx-transition: all 0.3s ease-in-out;
-    -fx-background-color: #8f8f8f;
+    -fx-background-color: #cdcdcd;
 }
 
 /* Hover effect */
 .form-button-return:hover {
-    -fx-background-color: #777777;
+    -fx-background-color: #a5a5a5;
 }
 
 /* Clicked (pressed) effect */
