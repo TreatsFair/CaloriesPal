@@ -23,12 +23,13 @@ object MainApp extends JFXApp3:
     val rootLayout = loader.load[javafx.scene.layout.BorderPane]()
     rootPane = Option(loader.getRoot[javafx.scene.layout.BorderPane]())
     Font.loadFont(getClass.getResource("/fonts/black-mango-regular.ttf").toExternalForm, 14)
-
+    Font.loadFont(getClass.getResource("/fonts/Cygre-Regular.ttf").toExternalForm, 14)
+    Font.loadFont(getClass.getResource("/fonts/Cygre-Bold.ttf").toExternalForm, 14)
     stage = new PrimaryStage():
       title = "CaloriesPal"
       scene = new Scene:
         root = rootLayout
-    showLogin() // Show login screen first
+    showMainWindow() // Show login screen first
 
     //      stylesheets = Seq(getClass.getResource("/styles.css").toExternalForm)
 
@@ -48,19 +49,19 @@ object MainApp extends JFXApp3:
     rootPane.foreach(_.setCenter(pane))
 
   /** After login success, go to main dashboard */
-  def showDashboard(): Unit =
-    val mainResource = getClass.getResource("/caloriespal/view/Dashboard.fxml")
+  def showMainWindow(): Unit =
+    val mainResource = getClass.getResource("/caloriespal/view/MainWindow.fxml")
     val mainLoader = new FXMLLoader(mainResource)
-    val pane = mainLoader.load[javafx.scene.layout.AnchorPane]()
+    val pane = mainLoader.load[javafx.scene.layout.BorderPane]()
     rootPane.foreach(_.setCenter(pane))
 
 
   // show welcome window in the center of the root pane
-  def showWelcome(): Unit =
-    val welcome = getClass.getResource("/caloriespal/view/Welcome.fxml")
-    val welcomeLoader = new FXMLLoader(welcome)
-    val pane = welcomeLoader.load[javafx.scene.layout.AnchorPane]()
-    rootPane.foreach(_.setCenter(pane)) // Set the center of the root pane to the welcome view
+//  def showWelcome(): Unit =
+//    val welcome = getClass.getResource("/caloriespal/view/Welcome.fxml")
+//    val welcomeLoader = new FXMLLoader(welcome)
+//    val pane = welcomeLoader.load[javafx.scene.layout.AnchorPane]()
+//    rootPane.foreach(_.setCenter(pane)) // Set the center of the root pane to the welcome view
 
 
   def showAbout(): Boolean =

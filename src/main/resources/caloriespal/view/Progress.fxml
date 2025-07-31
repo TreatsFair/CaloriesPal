@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="650.0" prefWidth="990.0" styleClass="main-content" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="caloriespal.view.ProgressController">
+    <children>
+        <Label fx:id="progressLabel" layoutX="50.0" layoutY="40.0" styleClass="content-text" text="Progress Overview">
+            <font>
+                <Font name="Black Mango" size="28.0" />
+            </font>
+        </Label>
+        <!-- Add progress-related UI components here -->
+    </children>
+</AnchorPane>
