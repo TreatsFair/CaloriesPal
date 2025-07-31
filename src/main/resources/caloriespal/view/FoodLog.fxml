@@ -8,7 +8,7 @@
     <children>
         <Label fx:id="foodLogLabel" layoutX="50.0" layoutY="40.0" styleClass="content-text" text="Food Log">
             <font>
-                <Font name="Black Mango" size="28.0" />
+                <Font name="Cygre" size="28.0" />
             </font>
         </Label>
         <!-- Add food log-related UI components here -->

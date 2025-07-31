@@ -8,7 +8,7 @@
     <children>
         <Label fx:id="workoutLabel" layoutX="50.0" layoutY="40.0" styleClass="content-text" text="Workout Progress">
             <font>
-                <Font name="Black Mango" size="28.0" />
+                <Font name="Cygre" size="28.0" />
             </font>
         </Label>
         <!-- Add workout-related UI components here -->

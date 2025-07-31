@@ -20,28 +20,28 @@
                 </Label>
 
                 <!-- Username -->
-                <Label layoutX="74.0" layoutY="116.0" styleClass="form-label" text="Username">
+                <Label layoutX="74.0" layoutY="110.0" styleClass="form-label" text="Username">
                     <font>
                         <Font name="OCR A Extended" size="13.0" />
                     </font>
                 </Label>
-                <TextField fx:id="userNameField" layoutX="74.0" layoutY="137.0" prefHeight="34.0" prefWidth="259.0" styleClass="text-field" />
+                <TextField fx:id="userNameField" layoutX="74.0" layoutY="133.0" prefHeight="34.0" prefWidth="259.0" styleClass="input-field" />
 
                 <!-- Email -->
-                <Label layoutX="74.0" layoutY="183.0" styleClass="form-label" text="Email">
+                <Label layoutX="74.0" layoutY="177.0" styleClass="form-label" text="Email">
                     <font>
                         <Font name="OCR A Extended" size="13.0" />
                     </font>
                 </Label>
-                <TextField fx:id="emailField" layoutX="74.0" layoutY="201.0" prefHeight="34.0" prefWidth="259.0" promptText="sample@gmail.com" styleClass="text-field" />
+                <TextField fx:id="emailField" layoutX="74.0" layoutY="199.0" prefHeight="34.0" prefWidth="259.0" promptText="sample@gmail.com" styleClass="input-field" />
 
                 <!-- Password -->
-                <Label layoutX="74.0" layoutY="247.0" styleClass="form-label" text="Password">
+                <Label layoutX="74.0" layoutY="243.0" styleClass="form-label" text="Password">
                     <font>
                         <Font name="OCR A Extended" size="13.0" />
                     </font>
                 </Label>
-                <PasswordField fx:id="passwordField" layoutX="74.0" layoutY="265.0" prefHeight="34.0" prefWidth="259.0" styleClass="password-field" />
+                <PasswordField fx:id="passwordField" layoutX="74.0" layoutY="265.0" prefHeight="34.0" prefWidth="259.0" styleClass="input-field" />
 
                 <!-- Register Button -->
                 <Button fx:id="registerButton" defaultButton="true" layoutX="74.0" layoutY="340.0" onAction="#handleRegister" prefHeight="40.0" prefWidth="259.0" styleClass="form-button-secondary" text="Register" />

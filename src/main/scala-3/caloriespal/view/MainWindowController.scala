@@ -15,7 +15,8 @@ class MainWindowController:
   @FXML private var progressButton: Button = _
   @FXML private var workoutButton: Button = _
   @FXML private var profileButton: Button = _
-  @FXML private var welcomeLabel: Label = _
+  @FXML private var logoutButton: Button = _
+//  @FXML private var welcomeLabel: Label = _
 
   private val allNavButtons = Seq(
     () => dashboardButton,
@@ -27,9 +28,9 @@ class MainWindowController:
 
   @FXML def initialize(): Unit =
     // Show the user’s name (optional)
-    User.currentUser.foreach(user =>
-      welcomeLabel.setText(s"Hello, ${user.userName}!")
-    )
+//    User.currentUser.foreach(user =>
+//      welcomeLabel.setText(s"Hello, ${user.userName}!")
+//    )
 
     // load dashboard as initial content
     loadDashboardContent()
@@ -40,7 +41,6 @@ class MainWindowController:
 
   private def clearActiveStyles(): Unit =
     allNavButtons.foreach(btn => btn().getStyleClass.remove("active"))
-
 
   def loadDashboardContent(): Unit =
     val loader = new FXMLLoader(getClass.getResource("/caloriespal/view/Dashboard.fxml"))
@@ -92,7 +92,7 @@ class MainWindowController:
     profileButton.getStyleClass.add("active")
     loadProfileContent()
 
-  @FXML def handleLogout(): Unit =
+  @FXML def handleLogoutClick(): Unit =
     // Logic to handle logout
     clearActiveStyles()
     dashboardButton.getStyleClass.add("active")

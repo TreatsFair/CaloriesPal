@@ -8,7 +8,7 @@
     <children>
         <Label fx:id="progressLabel" layoutX="50.0" layoutY="40.0" styleClass="content-text" text="Progress Overview">
             <font>
-                <Font name="Black Mango" size="28.0" />
+                <Font name="Cygre" size="28.0" />
             </font>
         </Label>
         <!-- Add progress-related UI components here -->

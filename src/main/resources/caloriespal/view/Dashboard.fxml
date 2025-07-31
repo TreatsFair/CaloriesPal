@@ -3,18 +3,33 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="650.0" prefWidth="990.0" styleClass="main-content" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="caloriespal.view.DashboardController">
 
    <children>
-      <Label fx:id="welcomeLabel" layoutX="139.0" layoutY="29.0" text="Welcome!">
+      <Label styleClass="dashboard-text" text="Test Cygre Font" />
+      <Label fx:id="welcomeLabel" layoutX="139.0" layoutY="29.0" styleClass="dashboard-text" text="Welcome!">
          <font>
-            <Font name="Black Mango" size="28.0" />
+            <Font name="Cygre" size="28.0" />
          </font>
       </Label>
-      <Label fx:id="caloriesLabel" layoutX="50.0" layoutY="40.0" styleClass="cards-text" text="Calories" />
-      <Label fx:id="foodSummaryLabel" layoutX="50.0" layoutY="80.0" styleClass="cards-textsmall" text="Food Summary" />
-      <Label fx:id="exerciseLabel" layoutX="50.0" layoutY="120.0" styleClass="cards-textsmall" text="Exercise" />
+      <Label fx:id="caloriesLabel" layoutX="50.0" layoutY="40.0" styleClass="dashboard-text" text="Calories">
+         <font>
+            <Font name="Cygre" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="foodSummaryLabel" layoutX="50.0" layoutY="80.0" styleClass="dashboard-text" text="Food Summary">
+         <font>
+            <Font name="Cygre" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="exerciseLabel" layoutX="50.0" layoutY="120.0" styleClass="dashboard-text" text="Exercise">
+         <font>
+            <Font name="Cygre" size="13.0" />
+         </font>
+      </Label>
+      <Text layoutX="234.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-text" text="test" />
 
       <!-- Add cards or content for:
            - Today's calorie summary
