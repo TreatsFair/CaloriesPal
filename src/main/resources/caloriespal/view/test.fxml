@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+
+<?import javafx.geometry.Insets?>
+<VBox xmlns="http://javafx.com/javafx/23.0.1"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="caloriespal.view.DashboardController"
+      spacing="20" alignment="TOP_CENTER"
+      prefWidth="990.0" prefHeight="650.0"
+      styleClass="main-content">
+
+    <!-- Summary Card -->
+    <VBox styleClass="card summary-card" spacing="10" prefWidth="300">
+        <padding>
+            <Insets top="20" right="20" bottom="20" left="20"/>
+        </padding>
+        <HBox alignment="CENTER_RIGHT" prefWidth="260">
+            <Label text="Summary" styleClass="card-title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Hyperlink text="More" />
+        </HBox>
+        <Label fx:id="remainingCaloriesLabel"
+               text="1031 Remaining"
+               style="-fx-font-size: 24px; -fx-text-fill: #333;" />
+        <!-- Placeholder for circle chart -->
+        <ProgressIndicator fx:id="calorieProgress" progress="0.6" prefWidth="100" prefHeight="100"/>
+    </VBox>
+
+    <!-- Nutrition Card -->
+    <VBox styleClass="card nutrition-card" spacing="15" prefWidth="300">
+        <padding>
+            <Insets top="20" right="20" bottom="20" left="20"/>
+        </padding>
+        <HBox alignment="CENTER_RIGHT" prefWidth="260">
+            <Label text="Nutrition" styleClass="card-title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="+" />
+        </HBox>
+
+        <VBox spacing="10">
+            <!-- Lunch Row -->
+            <HBox spacing="10" prefWidth="260">
+                <Label text="Lunch"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label fx:id="lunchLabel" text="374 / 702 kcal"/>
+            </HBox>
+
+            <!-- Dinner Row -->
+            <HBox spacing="10" prefWidth="260">
+                <Label text="Dinner"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label fx:id="dinnerLabel" text="0 / 702 kcal"/>
+            </HBox>
+
+            <!-- Snacks Row -->
+            <HBox spacing="10" prefWidth="260">
+                <Label text="Snacks"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label fx:id="snackLabel" text="0 kcal"/>
+            </HBox>
+        </VBox>
+    </VBox>
+</VBox>

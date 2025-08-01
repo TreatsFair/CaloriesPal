@@ -19,7 +19,7 @@
                 <padding>
               <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
           </padding>
-         <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="My Profile" translateX="14.0" translateY="-8.0">
+         <Text fx:id="titleText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="My Profile" translateX="14.0" translateY="-8.0">
             <VBox.margin>
                <Insets />
             </VBox.margin>
@@ -43,24 +43,24 @@
            </rowConstraints>
             <children>
                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="info-text" text="Username" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-               <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="info-text" text="Height (cm)" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+               <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="info-text" text="Height" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="info-text" text="Weight (kg)" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="info-text" text="Gender" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="info-text" text="Date of Birth" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="info-text" text="Location" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                <TextField fx:id="usernameField" prefHeight="25.0" prefWidth="463.0" styleClass="input-field" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-               <TextField fx:id="heightField" styleClass="input-field" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+               <TextField fx:id="heightField" promptText="Enter height (cm)" styleClass="input-field" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="info-text" text="Weight Goal" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-               <TextField fx:id="locationField" styleClass="input-field" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-               <TextField fx:id="dobField" styleClass="input-field" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-               <TextField fx:id="genderField" styleClass="input-field" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-               <TextField fx:id="weightField" styleClass="input-field" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-               <TextField fx:id="goalField" styleClass="input-field" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+               <TextField fx:id="locationField" promptText="Enter location" styleClass="input-field" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+               <TextField fx:id="dobField" promptText="Enter DOB (DD.MM.YYYY)" styleClass="input-field" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+               <TextField fx:id="genderField" promptText="Enter gender (Male/Female)" styleClass="input-field" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+               <TextField fx:id="weightField" promptText="Enter weight (kg)" styleClass="input-field" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+               <TextField fx:id="goalField" promptText="Enter weight goal (kg)" styleClass="input-field" GridPane.columnIndex="2" GridPane.rowIndex="7" />
             </children>
          </GridPane>
       
-                <Button fx:id="editButton" onAction="#handleEditClick" styleClass="edit-button" text="Edit" translateX="735.0">
+                <Button fx:id="editButton" defaultButton="true" onAction="#handleEditClick" styleClass="edit-button" text="Edit" translateX="735.0">
             <padding>
                <Insets left="10.0" right="10.0" />
             </padding>

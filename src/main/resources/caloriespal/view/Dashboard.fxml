@@ -1,35 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="650.0" prefWidth="990.0" styleClass="main-content" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="caloriespal.view.DashboardController">
+<AnchorPane prefHeight="650.0" prefWidth="990.0" styleClass="main-content" stylesheets="@../../styles/dashboard.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="caloriespal.view.DashboardController">
 
    <children>
-      <Label styleClass="dashboard-text" text="Test Cygre Font" />
-      <Label fx:id="welcomeLabel" layoutX="139.0" layoutY="29.0" styleClass="dashboard-text" text="Welcome!">
+      <Separator layoutY="81.0" prefHeight="1.0" prefWidth="990.0" />
+      <Label fx:id="welcomeLabel" layoutX="523.0" layoutY="27.0" styleClass="dashboard-text" text="Welcome!">
          <font>
             <Font name="Cygre" size="28.0" />
          </font>
       </Label>
-      <Label fx:id="caloriesLabel" layoutX="50.0" layoutY="40.0" styleClass="dashboard-text" text="Calories">
-         <font>
-            <Font name="Cygre" size="20.0" />
-         </font>
-      </Label>
-      <Label fx:id="foodSummaryLabel" layoutX="50.0" layoutY="80.0" styleClass="dashboard-text" text="Food Summary">
-         <font>
-            <Font name="Cygre" size="13.0" />
-         </font>
-      </Label>
-      <Label fx:id="exerciseLabel" layoutX="50.0" layoutY="120.0" styleClass="dashboard-text" text="Exercise">
-         <font>
-            <Font name="Cygre" size="13.0" />
-         </font>
-      </Label>
-      <Text layoutX="234.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="dashboard-text" text="test" />
+      <VBox alignment="CENTER" layoutX="254.0" layoutY="176.0" spacing="20">
+         <padding>
+            <Insets bottom="20" left="20" right="20" top="20" />
+         </padding>
+         <children>
+            <Text styleClass="title" text="Dashboard" />
+            <StackPane maxHeight="300" maxWidth="300">
+               <children>
+                  <Circle fx:id="outerCircle" fill="transparent" radius="100" stroke="#bab9b9" strokeWidth="10" />
+                  <Circle fx:id="progressCircle" fill="transparent" radius="100" stroke="#4caf50" strokeDashArray="628.32" strokeDashOffset="628.32" strokeWidth="10" />
+                  <VBox alignment="CENTER">
+                     <children>
+                        <Text fx:id="caloriesTakenText" styleClass="progress-text" text="0 kcal" textAlignment="RIGHT" />
+                        <Text styleClass="progress-label" text="Calories Taken" />
+                     </children>
+                  </VBox>
+               </children>
+            </StackPane>
+            <HBox alignment="CENTER" spacing="20">
+               <children>
+                  <VBox alignment="CENTER" spacing="10">
+                     <children>
+                        <Text styleClass="info-label" text="Calories Needed" />
+                        <Text fx:id="caloriesNeededLabel" styleClass="progress-text" text="0 kcal" textAlignment="RIGHT" />
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" spacing="10">
+                     <children>
+                        <Text styleClass="info-label" text="BMI" />
+                        <Text fx:id="bmiLabel" styleClass="progress-text" text="0.0" textAlignment="RIGHT" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <Text layoutX="46.0" layoutY="53.0" styleClass="title" text="Dashboard" />
 
       <!-- Add cards or content for:
            - Today's calorie summary

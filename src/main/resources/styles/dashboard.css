@@ -1,0 +1,13 @@
+.root {
+    -fx-font-family: "Cygre";
+}
+
+@font-face {
+    font-family: "Cygre";
+    src: url("/fonts/Cygre-Regular.ttf");
+}
+
+.title {
+    -fx-font-family: "Cygre";
+    -fx-font-size: 28px;
+}

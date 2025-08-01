@@ -60,7 +60,7 @@ class RegisterController:
 
   private def showAlert(header: String, content: String): Unit =
     val alert = new Alert(AlertType.INFORMATION)
-    alert.setTitle("Register")
+    alert.setTitle("Registration")
     alert.setHeaderText(header)
     alert.setContentText(content)
     alert.showAndWait()

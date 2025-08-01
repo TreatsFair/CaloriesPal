@@ -4,8 +4,10 @@ import javafx.fxml.FXML
 import javafx.scene.control.{Button, TextField}
 import caloriespal.model.User
 import caloriespal.util.DateUtil.*
+import javafx.scene.text.Text
 import scalafx.scene.control.Alert
 import scalafx.scene.control.Alert.AlertType
+
 import scala.util.{Failure, Success}
 
 class ProfileController:
@@ -18,6 +20,7 @@ class ProfileController:
   @FXML private var locationField: TextField = _
   @FXML private var goalField: TextField = _
   @FXML private var editButton: Button = _
+  @FXML private var titleText: Text = _
 
   private var isEditing: Boolean = false
 
@@ -39,31 +42,39 @@ class ProfileController:
     else
       setFieldsEditable(true)
       editButton.setText("Save")
+      editButton.setTranslateX(editButton.getTranslateX - 15)
+      titleText.setText("Edit Profile")
       isEditing = true
 
   @FXML def handleSaveClick(): Unit =
     // Validate numeric fields
     if !heightField.getText.matches("\\d+") then
-      showAlert("Validation Error", "Height must be a number.")
+      showAlert("Please correct invalid fields", "Height must be a number.")
       return
     if !weightField.getText.matches("\\d+") then
-      showAlert("Validation Error", "Weight must be a number.")
+      showAlert("Please correct invalid fields", "Weight must be a number.")
       return
     if goalField.getText.nonEmpty && !goalField.getText.matches("\\d+") then
-      showAlert("Validation Error", "Weight goal must be a number.")
+      showAlert("Please correct invalid fields", "Weight goal must be a number.")
+      return
+
+    // Validate gender field
+    val gender = genderField.getText.trim.toLowerCase
+    if gender != "male" && gender != "female" then
+      showAlert("Please correct invalid fields", "Gender must be 'Male' or 'Female'.")
       return
 
     // Validate date of birth
     val dob = dobField.getText
     if !dob.isValidDOB then
-      showAlert("Validation Error", "Date of Birth must be in the format dd.MM.yyyy and not in the future.")
+      showAlert("Please correct invalid fields", "Date of Birth must be in the format DD.MM.YYYY.")
       return
 
     // Save the updated details
     val newUsername = usernameField.getText
     val newHeight = Some(heightField.getText.toInt)
     val newWeight = Some(weightField.getText.toInt)
-    val newGender = Option(genderField.getText).filter(_.nonEmpty)
+    val newGender = Some(gender.capitalize)
     val newDob = Option(dobField.getText).filter(_.nonEmpty)
     val newLocation = Option(locationField.getText).filter(_.nonEmpty)
     val newGoal = if goalField.getText.nonEmpty then Some(goalField.getText.toInt) else None
@@ -84,6 +95,8 @@ class ProfileController:
         case Success(_) =>
           setFieldsEditable(false)
           editButton.setText("Edit")
+          editButton.setTranslateX(editButton.getTranslateX + 15)
+          titleText.setText("My Profile")
           isEditing = false
         case Failure(e) =>
           showAlert("Database Error", "An error occurred while saving to the database: " + e.getMessage)
@@ -91,7 +104,7 @@ class ProfileController:
 
   private def showAlert(header: String, content: String): Unit =
     val alert = new Alert(AlertType.Error)
-    alert.setTitle("Error")
+    alert.setTitle("Save Error")
     alert.setHeaderText(header)
     alert.setContentText(content)
     alert.showAndWait()

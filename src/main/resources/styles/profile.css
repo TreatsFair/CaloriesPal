@@ -18,11 +18,15 @@
     -fx-font-size: 22px;
 }
 
+.button {
+    -fx-font-family: "Cygre";
+}
+
 .edit-button {
     -fx-font-family: "Cygre";
     -fx-font-size: 12px;
     -fx-text-fill: black;
-    -fx-background-color: #9e9d9d;
+    -fx-background-color: #bab9b9;
     -fx-background-radius: 8px;
     -fx-padding: 6px 13px;
     -fx-cursor: hand;
@@ -32,16 +36,18 @@
 
 
 .edit-button:hover {
-    -fx-background-color: #838383; /* Darker green on hover */
+    -fx-background-color: #a6a6a6;
 }
 
 .input-field {
     -fx-font-family: "Cygre";
     -fx-font-size: 14px;
+}
+
+.hidden-textfield {
     -fx-background-color: transparent;
     -fx-border-color: transparent;
     -fx-text-fill: black; /* Ensure text remains visible */
-    }
 }
 
 .text-field {
