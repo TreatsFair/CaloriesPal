@@ -24,7 +24,6 @@ object MainApp extends JFXApp3:
     rootPane = Option(loader.getRoot[javafx.scene.layout.BorderPane]())
     Font.loadFont(getClass.getResource("/fonts/black-mango-regular.ttf").toExternalForm, 14)
     Font.loadFont(getClass.getResource("/fonts/Cygre-Regular.ttf").toExternalForm, 14)
-    Font.loadFont(getClass.getResource("/fonts/Cygre-Bold.ttf").toExternalForm, 14)
     stage = new PrimaryStage():
       title = "CaloriesPal"
       scene = new Scene:

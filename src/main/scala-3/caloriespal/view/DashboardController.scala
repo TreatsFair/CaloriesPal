@@ -53,7 +53,7 @@ class DashboardController:
       val tdee = bmr * 1.55 // Assuming moderate activity level
 
       // Example: Calories taken and needed
-      val caloriesTaken = 0 // Replace with actual data
+      val caloriesTaken = 1200 // Replace with actual data
       val caloriesNeeded = tdee - caloriesTaken
       caloriesNeededLabel.setText(f"$caloriesNeeded%.0f kcal")
       caloriesTakenText.setText(f"$caloriesTaken%.0f kcal")

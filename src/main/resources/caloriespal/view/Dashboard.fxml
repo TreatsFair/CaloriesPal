@@ -1,62 +1,450 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.Group?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Circle?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="650.0" prefWidth="990.0" styleClass="main-content" stylesheets="@../../styles/dashboard.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="caloriespal.view.DashboardController">
 
    <children>
       <Separator layoutY="81.0" prefHeight="1.0" prefWidth="990.0" />
-      <Label fx:id="welcomeLabel" layoutX="523.0" layoutY="27.0" styleClass="dashboard-text" text="Welcome!">
-         <font>
-            <Font name="Cygre" size="28.0" />
-         </font>
-      </Label>
-      <VBox alignment="CENTER" layoutX="254.0" layoutY="176.0" spacing="20">
-         <padding>
-            <Insets bottom="20" left="20" right="20" top="20" />
-         </padding>
+      <HBox layoutX="45.0" layoutY="114.0" prefHeight="267.0" prefWidth="340.0" styleClass="card">
          <children>
-            <Text styleClass="title" text="Dashboard" />
-            <StackPane maxHeight="300" maxWidth="300">
+            <VBox alignment="CENTER" prefHeight="371.0" prefWidth="305.0" spacing="20">
+               <padding>
+                  <Insets bottom="20" left="20" right="20" top="20" />
+               </padding>
                <children>
-                  <Circle fx:id="outerCircle" fill="transparent" radius="100" stroke="#bab9b9" strokeWidth="10" />
-                  <Circle fx:id="progressCircle" fill="transparent" radius="100" stroke="#4caf50" strokeDashArray="628.32" strokeDashOffset="628.32" strokeWidth="10" />
-                  <VBox alignment="CENTER">
+                  <Text styleClass="card-title" text="Summary" translateX="-90.0">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Text>
+                  <Text styleClass="card-mini-text" text="Remaining = Target - Food + Exercise">
+                     <VBox.margin>
+                        <Insets top="-15.0" />
+                     </VBox.margin>
+                  </Text>
+                  <StackPane maxHeight="200" maxWidth="200">
                      <children>
-                        <Text fx:id="caloriesTakenText" styleClass="progress-text" text="0 kcal" textAlignment="RIGHT" />
-                        <Text styleClass="progress-label" text="Calories Taken" />
+                        <Circle fx:id="outerCircle" fill="transparent" radius="80" stroke="#bab9b9" strokeWidth="10" />
+                        <Circle fx:id="progressCircle" fill="transparent" radius="80" stroke="#4caf50" strokeDashArray="502.65" strokeDashOffset="502.65" strokeWidth="10" />
+                        <VBox alignment="CENTER" prefHeight="100.0" prefWidth="110.0">
+                           <children>
+                              <Text fx:id="caloriesNeededLabel" styleClass="circle-text" text="0 kcal" textAlignment="RIGHT" />
+                              <Text styleClass="circle-text2" text="Remaining" />
+                           </children>
+                        </VBox>
                      </children>
-                  </VBox>
+                  </StackPane>
                </children>
-            </StackPane>
-            <HBox alignment="CENTER" spacing="20">
+               <HBox.margin>
+                  <Insets bottom="-10.0" top="-15.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox alignment="CENTER" spacing="10">
                <children>
-                  <VBox alignment="CENTER" spacing="10">
-                     <children>
-                        <Text styleClass="info-label" text="Calories Needed" />
-                        <Text fx:id="caloriesNeededLabel" styleClass="progress-text" text="0 kcal" textAlignment="RIGHT" />
-                     </children>
-                  </VBox>
-                  <VBox alignment="CENTER" spacing="10">
-                     <children>
-                        <Text styleClass="info-label" text="BMI" />
-                        <Text fx:id="bmiLabel" styleClass="progress-text" text="0.0" textAlignment="RIGHT" />
-                     </children>
-                  </VBox>
+                  <Text styleClass="circle-text" text="Base Target" />
+                  <Text fx:id="caloriesTakenText1" styleClass="circle-text" text="0 kcal">
+                     <VBox.margin>
+                        <Insets bottom="6.0" top="-10.0" />
+                     </VBox.margin>
+                  </Text>
+                  <Text styleClass="circle-text" text="Food" />
+                  <Text fx:id="caloriesTakenText" styleClass="circle-text" text="0 kcal">
+                     <VBox.margin>
+                        <Insets bottom="6.0" top="-10.0" />
+                     </VBox.margin>
+                  </Text>
+                  <Text styleClass="circle-text" text="Exercise" />
+                  <Text fx:id="caloriesTakenText2" styleClass="circle-text" text="0 kcal">
+                     <VBox.margin>
+                        <Insets top="-10.0" />
+                     </VBox.margin>
+                  </Text>
                </children>
-            </HBox>
+               <padding>
+                  <Insets right="10.0" />
+               </padding>
+               <HBox.margin>
+                  <Insets bottom="5.0" left="10.0" top="40.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox alignment="CENTER" spacing="10" />
+         </children>
+      </HBox>
+      <Text layoutX="46.0" layoutY="53.0" styleClass="title" text="Dashboard" />
+      <VBox layoutX="578.0" layoutY="114.0" prefHeight="291.0" prefWidth="356.0" styleClass="card2" translateX="-15.0">
+         <children>
+            <Line endX="224.0" opacity="0.14" startX="-100.0" strokeLineCap="BUTT" strokeLineJoin="BEVEL" strokeWidth="0.5" translateY="245.0">
+               <stroke>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.10054837125552463">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.20203797675560642">
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.29800294647241765">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.39554346046816163">
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.49251104927156636">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.58491569815027">
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.6948354886233425">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.7585529546570633">
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.7926829268292682">
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.9168030774267474">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </stroke>
+            </Line>
+            <Line endX="224.0" opacity="0.14" startX="-100.0" strokeLineCap="BUTT" strokeLineJoin="BEVEL" strokeWidth="0.5" translateY="140.0">
+               <stroke>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.10054837125552463">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.20203797675560642">
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.29800294647241765">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.39554346046816163">
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.49251104927156636">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.58491569815027">
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.6948354886233425">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.7585529546570633">
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.7926829268292682">
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.9168030774267474">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </stroke>
+            </Line>
+            <Line endX="224.0" opacity="0.14" startX="-100.0" strokeLineCap="BUTT" strokeLineJoin="BEVEL" strokeWidth="0.5" translateY="190.0">
+               <stroke>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.10054837125552463">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.20203797675560642">
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.29800294647241765">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.39554346046816163">
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.49251104927156636">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.58491569815027">
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.6948354886233425">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.7585529546570633">
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.7926829268292682">
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.9168030774267474">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </stroke>
+            </Line>
+            <Line endX="224.0" opacity="0.14" startX="-100.0" strokeLineCap="BUTT" strokeLineJoin="BEVEL" strokeWidth="0.5" translateY="90.0">
+               <stroke>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.10054837125552463">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.20203797675560642">
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.29800294647241765">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.39554346046816163">
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.49251104927156636">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.58491569815027">
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.6948354886233425">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.7585529546570633">
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.7926829268292682">
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.9168030774267474">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </stroke>
+            </Line>
+            <GridPane prefHeight="274.0" prefWidth="326.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="158.0" minWidth="10.0" prefWidth="146.0" />
+                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="184.0" minWidth="10.0" prefWidth="180.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="card-title" text="Nutrition" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="circle-text2" text="Breakfast" GridPane.rowIndex="1" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="circle-text2" text="Lunch" GridPane.rowIndex="2" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="circle-text2" text="Dinner" GridPane.rowIndex="3" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="circle-text2" text="Snacks" GridPane.rowIndex="4" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="circle-text2" text="0 kcal" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="circle-text2" text="0 kcal" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="circle-text2" text="0 kcal" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="circle-text2" text="0 kcal" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets top="-20.0" />
+               </VBox.margin>
+            </GridPane>
          </children>
       </VBox>
-      <Text layoutX="46.0" layoutY="53.0" styleClass="title" text="Dashboard" />
+      <HBox layoutX="533.0" layoutY="435.0" prefHeight="170.0" prefWidth="386.0" styleClass="card">
+         <children>
+            <GridPane prefHeight="140.0" prefWidth="389.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="232.0" minWidth="10.0" prefWidth="130.0" />
+                <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="189.0" minWidth="0.0" prefWidth="66.0" />
+                  <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="189.0" minWidth="10.0" prefWidth="33.0" />
+                  <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="189.0" minWidth="10.0" prefWidth="119.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Group styleClass="circle-text" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="circle-text2" text="Current Weight" GridPane.rowIndex="1" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="circle-text2" text="Target Weight" GridPane.rowIndex="2" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="card-title" text="Stats" />
+                  <Group styleClass="circle-text" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Text fx:id="bmiLabel" styleClass="circle-text2" text="0.0" textAlignment="RIGHT" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  <Text fx:id="bmiLabel1" styleClass="circle-text2" text="0.0" textAlignment="RIGHT" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                  <Text styleClass="circle-text2" text="BMI" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Text styleClass="circle-text2" text="BMI" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <Text styleClass="circle-text2" text="KG" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Text styleClass="circle-text2" text="KG" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+               </children>
+            </GridPane>
+         </children>
+      </HBox>
+      <HBox layoutX="46.0" layoutY="440.0" prefHeight="170.0" prefWidth="408.0" styleClass="card2">
+         <children>
+            <GridPane prefHeight="146.0" prefWidth="326.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="232.0" minWidth="10.0" prefWidth="122.0" />
+                  <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="189.0" minWidth="0.0" prefWidth="60.0" />
+                  <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="189.0" minWidth="10.0" prefWidth="144.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Group styleClass="circle-text" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Group styleClass="circle-text" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="circle-text2" text="Macros" />
+               </children>
+            </GridPane>
+         </children>
+      </HBox>
+
 
       <!-- Add cards or content for:
            - Today's calorie summary

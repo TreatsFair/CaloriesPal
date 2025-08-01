@@ -1,5 +1,7 @@
 .root {
     -fx-font-family: "Cygre";
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
 }
 
 @font-face {
@@ -10,4 +12,54 @@
 .title {
     -fx-font-family: "Cygre";
     -fx-font-size: 28px;
+}
+
+.card-mini-text {
+    -fx-font-weight: bold;
+    -fx-font-family: "Cygre";
+    -fx-font-size: 15px;
+    -fx-text-fill: grey;
+    -fx-translate-x: -8px;
+}
+
+.card-title {
+    -fx-font-family: "Cygre";
+    -fx-font-size: 23px;
+}
+
+.card {
+    -fx-font-family: "Cygre";
+    -fx-background-color: #e8f5e9;
+    -fx-background-radius: 30px;
+    -fx-border-radius: 30px;
+    -fx-padding: 15px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0.2, 0, 1);
+    -fx-font-weight: bold;
+}
+
+.card2 {
+    -fx-font-family: "Cygre";
+    -fx-background-color: #ced5d0;
+    -fx-background-radius: 30px;
+    -fx-border-radius: 30px;
+    -fx-padding: 15px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0.2, 0, 1);
+    -fx-font-weight: bold;
+}
+
+
+.card-right {
+    -fx-text-align-last: left;
+}
+.circle-text {
+    -fx-font-family: "Cygre";
+    -fx-font-size: 19px;
+    -fx-padding: 10px;
+    -fx-font-weight: bold;
+}
+
+.circle-text2 {
+    -fx-font-family: "Cygre";
+    -fx-font-size: 15px;
+    -fx-padding: 10px;
 }
