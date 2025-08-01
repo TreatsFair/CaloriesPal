@@ -29,7 +29,7 @@ object MainApp extends JFXApp3:
       title = "CaloriesPal"
       scene = new Scene:
         root = rootLayout
-    showMainWindow() // Show login screen first
+    showLogin() // Show login screen first
 
     //      stylesheets = Seq(getClass.getResource("/styles.css").toExternalForm)
 

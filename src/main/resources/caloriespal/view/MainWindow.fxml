@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <BorderPane fx:id="mainWindow" prefHeight="650.0" prefWidth="1200.0" stylesheets="@../../styles/mainwindow.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="caloriespal.view.MainWindowController">
@@ -19,13 +18,15 @@
         <VBox layoutX="64.0" layoutY="125.0" prefHeight="650.0" prefWidth="211.0" styleClass="vbox-container" stylesheets="@../../styles/mainwindow.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="985.0" AnchorPane.topAnchor="0.0">
             <children>
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="CaloriesPal">
-                    <font>
-                        <Font name="French Script MT" size="12.0" />
-                    </font>
                     <VBox.margin>
-                        <Insets bottom="30.0" left="22.0" top="30.0" />
-                    </VBox.margin></Text>
-            <Separator prefWidth="200.0" />
+                        <Insets bottom="30.0" left="22.0" top="25.0" />
+                    </VBox.margin>
+            </Text>
+            <Separator prefWidth="178.0">
+               <VBox.margin>
+                  <Insets top="-20.0" />
+               </VBox.margin>
+            </Separator>
                 <Button fx:id="dashboardButton" mnemonicParsing="false" onAction="#handleDashboardClick" prefHeight="56.0" prefWidth="242.0" styleClass="button sidebar-button" text="Dashboard">
                     <VBox.margin>
                         <Insets top="20.0" />
@@ -86,7 +87,11 @@
                         </ImageView>
                     </graphic>
                 </Button>
-            <Button fx:id="LogoutButton" layoutX="10.0" layoutY="446.0" mnemonicParsing="false" onAction="#handleLogoutClick" prefHeight="56.0" prefWidth="242.0" text="Log Out" />
+            <Button fx:id="LogoutButton" layoutX="10.0" layoutY="446.0" mnemonicParsing="false" onAction="#handleLogoutClick" prefHeight="56.0" prefWidth="242.0" text="Log Out">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Button>
             </children>
         </VBox>
     </left>

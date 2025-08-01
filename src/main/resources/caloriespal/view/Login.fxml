@@ -18,7 +18,7 @@
                     </font>
                 </Label>
                 <TextField fx:id="emailField" layoutX="74.0" layoutY="147.0" prefHeight="34.0" prefWidth="259.0" styleClass="input-field" text="chunhung@gmail.com" />
-                <PasswordField fx:id="passwordField" layoutX="74.0" layoutY="222.0" prefHeight="34.0" prefWidth="259.0" styleClass="input-field" />
+                <PasswordField fx:id="passwordField" layoutX="74.0" layoutY="222.0" prefHeight="34.0" prefWidth="259.0" styleClass="input-field" text="12345678" />
                 <Label layoutX="74.0" layoutY="124.0" styleClass="form-label" text="Email">
                     <font>
                         <Font name="OCR A Extended" size="13.0" />

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="caloriespal.view.ProfileEditController" spacing="10" alignment="CENTER">
+    <children>
+        <TextField fx:id="usernameField" promptText="Enter new username" />
+        <TextField fx:id="heightField" promptText="Enter height (cm)" />
+        <TextField fx:id="weightField" promptText="Enter weight (kg)" />
+        <TextField fx:id="genderField" promptText="Enter gender" />
+        <TextField fx:id="dobField" promptText="Enter DOB (dd.MM.yyyy)" />
+        <TextField fx:id="locationField" promptText="Enter location" />
+        <TextField fx:id="weightGoalField" promptText="Enter weight goal (kg)" />
+        <Label fx:id="errorLabel" style="-fx-text-fill: red;" />
+        <Button fx:id="saveButton" text="Save" onAction="#handleSaveClick" />
+    </children>
+</VBox>
