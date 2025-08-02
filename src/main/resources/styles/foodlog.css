@@ -7,8 +7,9 @@
 
 .food-submit-button {
     -fx-font-family: "Cygre";
-    -fx-font-size: 12px;
+    -fx-font-size: 14px;
     -fx-background-color: #e0e0e0;
+    -fx-font-weight: bold;
     -fx-text-fill: #333;
     -fx-border-radius: 5px;
     -fx-background-radius: 5px;
@@ -22,4 +23,10 @@
 .foodlog-cards {
     -fx-font-family: "Cygre";
     -fx-font-size: 16px;
+}
+
+.foodlog-text {
+    -fx-font-family: "Cygre";
+    -fx-font-size: 14px;
+    -fx-text-fill: #555;
 }

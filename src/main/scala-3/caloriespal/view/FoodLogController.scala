@@ -1,13 +1,26 @@
 package caloriespal.view
 
+import caloriespal.model.User
 import javafx.fxml.FXML
-import javafx.scene.control.{Button, ListView, TextField}
+import javafx.scene.control.{Alert, Button, ButtonType, ListCell, ListView, TextField}
+import javafx.scene.layout.{HBox, Priority, Region}
 import com.github.tototoshi.csv.{CSVReader, defaultCSVFormat}
-import scala.jdk.CollectionConverters._
+import javafx.scene.text.Text
+import javafx.geometry.Pos
+
+import java.time.LocalDate
+import java.sql.Date
+import caloriespal.model.FoodLog
+
+import scala.jdk.CollectionConverters.*
 import java.io.InputStreamReader
 import javafx.beans.value.{ChangeListener, ObservableValue}
 import javafx.collections.{FXCollections, ListChangeListener}
 import javafx.application.Platform
+import scalikejdbc.DB
+import scalikejdbc.AutoSession
+import caloriespal.util.Database.session
+import javafx.scene.control.Alert.AlertType // <-- Add this import for implicit session
 
 class FoodLogController {
 
@@ -23,6 +36,9 @@ class FoodLogController {
   @FXML private var addLunchBtn: Button = _
   @FXML private var addDinnerBtn: Button = _
   @FXML private var addSnacksBtn: Button = _
+  @FXML private var saveButton: Button = _
+  @FXML private var removeButton: Button = _
+  @FXML private var datePicker: javafx.scene.control.DatePicker = _
 
   case class FoodItem(
                        name: String,
@@ -37,12 +53,129 @@ class FoodLogController {
   private var foodNames: List[String] = List.empty
 
   def initialize(): Unit = {
-    println("Initializing FoodLogController...")
     loadFoodData()
     setupSearchField()
     setupAddButtons()
     setupAutoResizeListViews()
-    println("Initialization complete!")
+    setupSaveButton()
+    setupRemoveButton()
+    setupListViewCellFactory(breakfastList)
+    setupListViewCellFactory(lunchList)
+    setupListViewCellFactory(dinnerList)
+    setupListViewCellFactory(snacksList)
+    setupDatePicker()
+    loadUserFoodLog() // Load for default date (today)
+  }
+
+  private def setupDatePicker(): Unit = {
+    if (datePicker != null) {
+      datePicker.setValue(LocalDate.now())
+      datePicker.valueProperty().addListener { (_, _, newDate) =>
+        loadUserFoodLog()
+      }
+    }
+  }
+
+  private def getSelectedDate: java.sql.Date = {
+    val localDate =
+      if (datePicker != null && datePicker.getValue != null) datePicker.getValue
+      else LocalDate.now()
+    Date.valueOf(localDate)
+  }
+
+  private def loadUserFoodLog(): Unit = {
+    User.currentUser match {
+      case Some(user) =>
+        val selectedDate = getSelectedDate
+        val logs = FoodLog.findByUserAndDate(user.email, selectedDate)(scalikejdbc.AutoSession)
+        breakfastList.getItems.clear()
+        lunchList.getItems.clear()
+        dinnerList.getItems.clear()
+        snacksList.getItems.clear()
+        logs.foreach { log =>
+          val display = f"${log.foodName} (${log.calories}%.0f kcal)"
+          log.category match {
+            case "Breakfast" => breakfastList.getItems.add(display)
+            case "Lunch"     => lunchList.getItems.add(display)
+            case "Dinner"    => dinnerList.getItems.add(display)
+            case "Snacks"    => snacksList.getItems.add(display)
+            case _           => // ignore unknown category
+          }
+        }
+      case None =>
+        // No user logged in, do nothing
+    }
+  }
+
+  private def setupSaveButton(): Unit = {
+    saveButton.setOnAction(_ => {
+      User.currentUser match {
+        case Some(user) =>
+          val selectedDate = getSelectedDate
+          FoodLog.clearForUserAndDate(user.email, selectedDate) // Uses implicit session from Database
+          saveMealToDatabase(user.email, "Breakfast", breakfastList, selectedDate)
+          saveMealToDatabase(user.email, "Lunch", lunchList, selectedDate)
+          saveMealToDatabase(user.email, "Dinner", dinnerList, selectedDate)
+          saveMealToDatabase(user.email, "Snacks", snacksList, selectedDate)
+          showAlert("Saved", "Your food log has been saved.")
+        case None =>
+          println("No user logged in. Cannot save food log.")
+      }
+    })
+  }
+
+  private def saveMealToDatabase(userEmail: String, mealType: String, listView: ListView[String], date: java.sql.Date): Unit = {
+    val items = listView.getItems.asScala
+    DB.localTx { implicit session =>
+      items.foreach { item =>
+        val foodName = item.split("\\(")(0).trim
+        val calories = item.split("\\(")(1).replace("kcal)", "").trim.toDouble
+        allFoodItems.find(_.name == foodName).foreach { f =>
+          FoodLog.insert(FoodLog(
+            userEmail = userEmail,
+            category = mealType,
+            foodName = f.name,
+            calories = f.calories,
+            protein = f.protein,
+            carbs = f.carbs,
+            fat = f.fat,
+            logDate = date
+          ))
+        }
+      }
+    }
+  }
+
+
+  private def setupRemoveButton(): Unit = {
+    removeButton.setOnAction(_ => {
+      confirmAndRemove(breakfastList)
+      confirmAndRemove(lunchList)
+      confirmAndRemove(dinnerList)
+      confirmAndRemove(snacksList)
+    })
+  }
+
+  private def confirmAndRemove(listView: ListView[String]): Unit = {
+    val selectedItem = listView.getSelectionModel.getSelectedItem
+    if (selectedItem != null) {
+      val alert = new Alert(AlertType.CONFIRMATION)
+      alert.setTitle("Remove Item")
+      alert.setHeaderText("Are you sure you want to remove this item?")
+      alert.setContentText(selectedItem)
+      val result = alert.showAndWait()
+      if (result.isPresent && result.get() == ButtonType.OK) {
+        listView.getItems.remove(selectedItem)
+      }
+    }
+  }
+
+  private def showAlert(title: String, message: String): Unit = {
+    val alert = new Alert(AlertType.INFORMATION)
+    alert.setTitle(title)
+    alert.setHeaderText(null)
+    alert.setContentText(message)
+    alert.showAndWait()
   }
 
   private def loadFoodData(): Unit = {
@@ -82,7 +215,6 @@ class FoodLogController {
     }
 
     foodNames = allFoodItems.map(_.name).distinct.sorted
-    println(s"Parsed ${allFoodItems.size} food items with nutritional values.")
   }
 
   private def setupSearchField(): Unit = {
@@ -116,29 +248,77 @@ class FoodLogController {
   }
 
   private def setupAddButtons(): Unit = {
-    addBreakfastBtn.setOnAction(_ => addSelectedFoodToMeal(breakfastList))
-    addLunchBtn.setOnAction(_ => addSelectedFoodToMeal(lunchList))
-    addDinnerBtn.setOnAction(_ => addSelectedFoodToMeal(dinnerList))
-    addSnacksBtn.setOnAction(_ => addSelectedFoodToMeal(snacksList))
+    addBreakfastBtn.setOnAction(_ => addSelectedFoodToMealWithAlert(breakfastList))
+    addLunchBtn.setOnAction(_ => addSelectedFoodToMealWithAlert(lunchList))
+    addDinnerBtn.setOnAction(_ => addSelectedFoodToMealWithAlert(dinnerList))
+    addSnacksBtn.setOnAction(_ => addSelectedFoodToMealWithAlert(snacksList))
   }
 
-  private def addSelectedFoodToMeal(targetList: ListView[String]): Unit = {
+  private def addSelectedFoodToMealWithAlert(targetList: ListView[String]): Unit = {
     val selectedFood = foodSearchList.getSelectionModel.getSelectedItem
-    if (selectedFood != null && !targetList.getItems.contains(selectedFood)) {
-      targetList.getItems.add(selectedFood)
+    if (selectedFood == null || selectedFood.trim.isEmpty) {
+      showAlert("No Selection", "Please select a food item before adding.")
+      return
+    }
+    if (!targetList.getItems.asScala.exists(_.startsWith(selectedFood))) {
       searchField.clear()
       foodSearchList.getItems.clear()
+      foodSearchList.setVisible(false)
 
-      // Optional: print nutrition info
       allFoodItems.find(_.name == selectedFood).foreach { item =>
-        println(s"Added to $targetList: ${item.name}")
-        println(f"  Calories: ${item.calories}%.1f kcal")
-        println(f"  Protein: ${item.protein}%.1f g")
-        println(f"  Carbs: ${item.carbs}%.1f g")
-        println(f"  Fat: ${item.fat}%.1f g")
+        val display = f"${item.name} (${item.calories}%.0f kcal)"
+        targetList.getItems.add(display)
       }
     }
   }
+
+  private def setupListViewCellFactory(listView: ListView[String]): Unit = {
+    listView.setCellFactory(_ => new ListCell[String]() {
+      override def updateItem(item: String, empty: Boolean): Unit = {
+        super.updateItem(item, empty)
+        if (item == null || empty) {
+          setText(null)
+          setGraphic(null)
+        } else {
+          val caloriePattern = "\\(([^)]+)\\)".r
+          val name = caloriePattern.replaceAllIn(item, "").trim
+          val caloriesOnly = caloriePattern.findFirstMatchIn(item).map(_.group(1)).getOrElse("")
+
+          val nameText = new Text(name)
+          val caloriesText = new Text(caloriesOnly)
+          val spacer = new Region()
+          HBox.setHgrow(spacer, Priority.ALWAYS)
+
+          val row = new HBox(10, nameText, spacer, caloriesText)
+          row.setAlignment(Pos.CENTER_LEFT)
+          setGraphic(row)
+        }
+      }
+    })
+  }
+
+
+  private def addSelectedFoodToMeal(targetList: ListView[String]): Unit = {
+    val selectedFood = foodSearchList.getSelectionModel.getSelectedItem
+    if (selectedFood != null && !targetList.getItems.asScala.exists(_.startsWith(selectedFood))) {
+      searchField.clear()
+      foodSearchList.getItems.clear()
+      foodSearchList.setVisible(false)
+
+      allFoodItems.find(_.name == selectedFood).foreach { item =>
+        val display = f"${item.name} (${item.calories}%.0f kcal)"
+        targetList.getItems.add(display)
+
+        // Optional: debug print
+//        println(s"Added to $targetList: ${item.name}")
+//        println(f"  Calories: ${item.calories}%.1f kcal")
+//        println(f"  Protein: ${item.protein}%.1f g")
+//        println(f"  Carbs: ${item.carbs}%.1f g")
+//        println(f"  Fat: ${item.fat}%.1f g")
+      }
+    }
+  }
+
 
   private def setupAutoResizeListViews(): Unit = {
     setupAutoResizeListView(breakfastList)

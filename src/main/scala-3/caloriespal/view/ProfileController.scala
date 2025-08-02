@@ -42,7 +42,6 @@ class ProfileController:
     else
       setFieldsEditable(true)
       editButton.setText("Save")
-      editButton.setTranslateX(editButton.getTranslateX - 15)
       titleText.setText("Edit Profile")
       isEditing = true
 
@@ -79,6 +78,7 @@ class ProfileController:
     val newLocation = Option(locationField.getText).filter(_.nonEmpty)
     val newGoal = if goalField.getText.nonEmpty then Some(goalField.getText.toInt) else None
 
+
     User.currentUser = User.currentUser.map(_.copy(
       userName = newUsername,
       height = newHeight,
@@ -95,7 +95,6 @@ class ProfileController:
         case Success(_) =>
           setFieldsEditable(false)
           editButton.setText("Edit")
-          editButton.setTranslateX(editButton.getTranslateX + 15)
           titleText.setText("My Profile")
           isEditing = false
         case Failure(e) =>
