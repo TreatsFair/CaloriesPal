@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="650.0" prefWidth="990.0" styleClass="main-content" stylesheets="@../../styles/dashboard.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="caloriespal.view.FoodLogController">
+    <children>
+        <Separator layoutY="81.0" prefHeight="3.0" prefWidth="990.0" />
+        <Text layoutX="56.0" layoutY="63.0" text="Food Log" />
+        <TextField fx:id="foodSearchList" accessibleRole="LIST_VIEW" layoutX="569.0" layoutY="38.0" prefWidth="400.0" promptText="Search for food..." />
+        <VBox layoutX="17.0" layoutY="92.0" prefHeight="547.0" prefWidth="955.0" spacing="20.0">
+            <!-- Breakfast Section -->
+            <Text text="Breakfast" />
+            <ListView fx:id="breakfastList" prefHeight="80.0" prefWidth="932.0" />
+            <Button fx:id="addBreakfastBtn" onAction="#onAddBreakfast" text="Add Food to Breakfast" />
+            <Separator prefWidth="990.0" />
+            <!-- Lunch Section -->
+            <Text text="Lunch" />
+            <ListView fx:id="lunchList" prefHeight="80.0" />
+            <Button fx:id="addLunchBtn" onAction="#onAddLunch" text="Add Food to Lunch" />
+            <Separator prefWidth="990.0" />
+            <!-- Dinner Section -->
+            <Text text="Dinner" />
+            <ListView fx:id="dinnerList" prefHeight="80.0" />
+            <Button fx:id="addDinnerBtn" onAction="#onAddDinner" text="Add Food to Dinner" />
+            <Separator prefWidth="990.0" />
+            <!-- Snacks Section -->
+            <Text text="Snacks" />
+            <ListView fx:id="snacksList" prefHeight="80.0" />
+            <Button fx:id="addSnacksBtn" onAction="#onAddSnacks" text="Add Food to Snacks" />
+        </VBox>
+    </children>
+</AnchorPane>

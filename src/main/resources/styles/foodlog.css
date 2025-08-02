@@ -1,0 +1,25 @@
+.root {
+    -fx-font-family: "Cygre";
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+}
+
+
+.food-submit-button {
+    -fx-font-family: "Cygre";
+    -fx-font-size: 12px;
+    -fx-background-color: #e0e0e0;
+    -fx-text-fill: #333;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+.foodlog-title {
+     -fx-font-family: "Cygre";
+     -fx-font-size: 28px;
+ }
+
+.foodlog-cards {
+    -fx-font-family: "Cygre";
+    -fx-font-size: 16px;
+}

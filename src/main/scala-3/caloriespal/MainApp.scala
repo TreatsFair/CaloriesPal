@@ -14,6 +14,7 @@ import scalafx.scene.text.Font
 import java.net.URL
 
 object MainApp extends JFXApp3:
+  
   //global rootPane variable
   var rootPane: Option[javafx.scene.layout.BorderPane] = None
   override def start(): Unit =

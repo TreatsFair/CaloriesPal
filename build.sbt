@@ -1,4 +1,3 @@
-
 ThisBuild / version := "0.1.0-SNAPSHOT"
 
 ThisBuild / scalaVersion := "3.3.6"
@@ -22,7 +21,8 @@ lazy val root = (project in file("."))
       "org.scalikejdbc" %% "scalikejdbc" % "4.3.0",
       "com.h2database" % "h2" % "2.2.224",
       "org.apache.derby" % "derby" % "10.17.1.0",
-      "org.apache.derby" % "derbytools" % "10.17.1.0"
+      "org.apache.derby" % "derbytools" % "10.17.1.0",
+      "com.github.tototoshi" %% "scala-csv" % "1.3.10"
     )
   )
 //enable for sbt-assembly
@@ -32,5 +32,3 @@ lazy val root = (project in file("."))
 //  case PathList(ps @ _*) if ps.last.endsWith(".class") => MergeStrategy.first // Take the first class file
 //  case _ => MergeStrategy.first // Apply first strategy to any other file
 //}
-
-

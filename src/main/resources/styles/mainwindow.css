@@ -18,16 +18,16 @@
 
 
 /* Text title: CaloriesPal */
-.text {
-    -fx-font-family: "Black Mango";
+.dashboard-text {
+    -fx-font-family: "Cygre";
     -fx-font-size: 24px;
     -fx-font-weight: bold;
-    -fx-fill: black;
+    -fx-text-fill: white;
     -fx-text-alignment: center;
     -fx-padding: 20 0 10 0;
 }
 
-.title {
+.dashboardTitle {
     -fx-font-family: "Black Mango";
     -fx-font-size: 30px;
     -fx-text-fill: black;
@@ -44,8 +44,10 @@
 }
 
 /* Style for all buttons in the sidebar */
-.button {
+.sbutton {
+    -fx-font-family: "Cygre";
     -fx-background-color: transparent;
+    -fx-text-alignment: center;
     -fx-text-fill: black;
     -fx-font-size: 16px;
     -fx-alignment: CENTER_LEFT;
@@ -57,14 +59,13 @@
 }
 
 /* Hover effect */
-.button:hover {
+.sbutton:hover {
     -fx-background-color: #c0c6be; /* Light green hover */
 }
 
 /* When clicked */
-.button:pressed {
+.sbutton:pressed {
     -fx-background-color: #afb5ae;
-    -fx-text-fill: black;
 }
 
 /* ImageView inside buttons */
