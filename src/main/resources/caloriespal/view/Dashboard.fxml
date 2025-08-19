@@ -58,7 +58,7 @@
             <VBox alignment="CENTER" spacing="10">
                <children>
                   <Text styleClass="circle-text" text="Base Target" />
-                  <Text fx:id="caloriesTakenText1" styleClass="circle-text" text="0 kcal">
+                  <Text fx:id="caloriesTargetLabel" styleClass="circle-text" text="0 kcal">
                      <VBox.margin>
                         <Insets bottom="6.0" top="-10.0" />
                      </VBox.margin>
@@ -379,10 +379,10 @@
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="circle-text2" text="Lunch" GridPane.rowIndex="2" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="circle-text2" text="Dinner" GridPane.rowIndex="3" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="circle-text2" text="Snacks" GridPane.rowIndex="4" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="circle-text2" text="0 kcal" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="circle-text2" text="0 kcal" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="circle-text2" text="0 kcal" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="circle-text2" text="0 kcal" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Text fx:id="breakfastCaloriesText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="circle-text2" text="0 kcal" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Text fx:id="snacksCaloriesText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="circle-text2" text="0 kcal" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <Text fx:id="dinnerCaloriesText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="circle-text2" text="0 kcal" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Text fx:id="lunchCaloriesText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="circle-text2" text="0 kcal" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                </children>
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
