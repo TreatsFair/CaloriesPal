@@ -51,22 +51,6 @@
                     <graphic>
                         <ImageView fitHeight="39.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../images/food-app_3911226.png" />
-                            </image>
-                        </ImageView>
-                    </graphic>
-               <styleClass>
-                  <String fx:value="sbutton" />
-                  <String fx:value="dashboard-text" />
-               </styleClass>
-                </Button>
-                <Button fx:id="progressButton" mnemonicParsing="false" onAction="#handleProgressClick" prefHeight="56.0" prefWidth="242.0" text="Progress">
-                    <VBox.margin>
-                        <Insets top="20.0" />
-                    </VBox.margin>
-                    <graphic>
-                        <ImageView fitHeight="39.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true" translateX="-2.0">
-                            <image>
                                 <Image url="@../../images/logs_4350882.png" />
                             </image>
                         </ImageView>
@@ -116,6 +100,13 @@
                   <String fx:value="sbutton" />
                   <String fx:value="dashboard-text" />
                </styleClass>
+               <graphic>
+                  <ImageView fitHeight="39.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/logout.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Button>
             </children>
         </VBox>

@@ -29,9 +29,7 @@ class FoodLogController {
   @FXML private var lunchList: ListView[String] = _
   @FXML private var dinnerList: ListView[String] = _
   @FXML private var snacksList: ListView[String] = _
-
   @FXML private var searchField: TextField = _
-
   @FXML private var addBreakfastBtn: Button = _
   @FXML private var addLunchBtn: Button = _
   @FXML private var addDinnerBtn: Button = _
