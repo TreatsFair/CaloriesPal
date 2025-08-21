@@ -10,7 +10,7 @@
 
 .background {
     -fx-background-color: radial-gradient(center 0% 0%, radius 100%, #e0d9d5, #807878);
-    -fx-background-image: url("/images/loginpage.png"); /* Use leading slash for absolute path */
+    -fx-background-image: url("/images/loginpage.png");
     -fx-background-repeat: no-repeat;
     /*-fx-background-position: center center;*/
     -fx-background-size: cover;
@@ -19,7 +19,8 @@
 
 /* Login/Register form container */
 .login-pane {
-    -fx-background-color: #ffffff;
+    /*-fx-background-color: #ffffff;*/
+    -fx-background-color: #eef3ef;
     -fx-background-radius: 20px;
     -fx-border-radius: 20px;
     -fx-border-color: #cfd8dc;

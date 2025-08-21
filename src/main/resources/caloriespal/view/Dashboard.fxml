@@ -20,6 +20,7 @@
 <AnchorPane prefHeight="650.0" prefWidth="990.0" styleClass="main-content" stylesheets="@../../styles/dashboard.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="caloriespal.view.DashboardController">
 
    <children>
+      <VBox prefHeight="650.0" prefWidth="990.0" styleClass="plain-bg" />
       <Separator layoutY="81.0" prefHeight="1.0" prefWidth="990.0" />
       <HBox layoutX="46.0" layoutY="101.0" prefHeight="267.0" prefWidth="340.0" styleClass="card">
          <children>

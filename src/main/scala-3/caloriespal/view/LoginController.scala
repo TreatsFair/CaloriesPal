@@ -42,7 +42,7 @@ class LoginController:
     User.findByEmail(email) match
       case Some(user) if user.password == password =>
         User.currentUser = Some(user) // Store the current user
-        showSuccessAlert(user.userName)
+//        showSuccessAlert(user.userName)
         MainApp.showMainWindow()
       case _ =>
         showAlert("Login Failed", "Invalid email or password.")

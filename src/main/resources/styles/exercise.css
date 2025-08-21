@@ -15,7 +15,8 @@
 
 /* Card styles */
 .card, .card2 {
-    -fx-background-color: #ffffff;
+    /*-fx-background-color: #ffffff;*/
+    -fx-background-color: #eef3ef;
     -fx-background-radius: 10px;
     -fx-border-color: #cfd8dc;
     -fx-border-width: 1px;
@@ -25,6 +26,13 @@
 
 /* Card title */
 .card-title {
+    -fx-font-family: "Cygre";
+    -fx-font-size: 20px;
+    -fx-text-fill: #555;
+    -fx-font-weight: bold;
+}
+
+.card-title-date {
     -fx-font-family: "Black Mango";
     -fx-font-size: 18px;
     -fx-text-fill: #555;
@@ -145,4 +153,13 @@
     -fx-font-size: 12px;
     -fx-text-fill: red;
     -fx-font-style: italic;
+}
+
+.main-content {
+    -fx-background-image: url("/images/plainbackground.png");
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center center;
+    -fx-pref-width: 100%;
+    -fx-pref-height: 100%;
 }

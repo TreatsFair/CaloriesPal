@@ -50,6 +50,9 @@ class DashboardController:
       val gender = user.gender.map(_.toLowerCase).getOrElse("")
       val goalOpt = user.goal
 
+      // If profile is incomplete, set all calorie values to 0
+      val profileComplete =
+        weight > 0 && height > 0 && age > 0 && (gender == "male" || gender == "female")
 
       // Set current weight and BMI labels
       val (bmi, bmiMessage) = calculateBMI(weight, height, gender)
@@ -67,23 +70,28 @@ class DashboardController:
           bmiTargetLabel.setText("0.0")
 
       // Calculate BMR and TDEE for current weight
-      val bmr = gender match
-        case "female" => 10 * weight + 6.25 * height - 5 * age - 161
-        case _        => 10 * weight + 6.25 * height - 5 * age + 5
-      val tdee = bmr * 1.2 // Assuming little activity level
+      val bmr =
+        if profileComplete then
+          gender match
+            case "female" => 10 * weight + 6.25 * height - 5 * age - 161
+            case "male"   => 10 * weight + 6.25 * height - 5 * age + 5
+            case _        => 0.0
+        else 0.0
+      val tdee = if profileComplete then bmr * 1.2 else 0.0 // Assuming little activity level
 
       // If goal is specified, calculate calories needed for target weight
       val (caloriesTarget, caloriesNeeded) = goalOpt match
-        case Some(targetWeight) =>
+        case Some(targetWeight) if profileComplete =>
           val bmrTarget = gender match
             case "female" => 10 * targetWeight + 6.25 * height - 5 * age - 161
-            case _        => 10 * targetWeight + 6.25 * height - 5 * age + 5
+            case "male"   => 10 * targetWeight + 6.25 * height - 5 * age + 5
+            case _        => 0.0
           val tdeeTarget = bmrTarget * 1.2
           val needed = if targetWeight < weight then tdeeTarget - 500
           else if targetWeight > weight then tdeeTarget + 500
           else tdeeTarget
           (tdeeTarget, needed)
-        case None =>
+        case _ =>
           (tdee, tdee)
 
       // Today’s food logs

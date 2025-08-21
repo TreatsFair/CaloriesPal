@@ -17,9 +17,8 @@
 }
 
 
-/* Text title: CaloriesPal */
 .dashboard-text {
-    -fx-font-family: "Cygre";
+    -fx-font-family: "Black Mango";
     -fx-font-size: 24px;
     -fx-font-weight: bold;
     -fx-text-fill: white;
@@ -45,11 +44,11 @@
 
 /* Style for all buttons in the sidebar */
 .sbutton {
-    -fx-font-family: "Cygre";
+    -fx-font-family: "Black Mango";
     -fx-background-color: transparent;
     -fx-text-alignment: center;
     -fx-text-fill: black;
-    -fx-font-size: 16px;
+    -fx-font-size: 24px;
     -fx-alignment: CENTER_LEFT;
     -fx-graphic-text-gap: 12px;
     -fx-cursor: hand;
@@ -79,7 +78,8 @@
 }
 
 .vbox-container {
-    -fx-background-color: #d3d2d2;
+    /*-fx-background-color: #d3d2d2;*/
+    -fx-background-color: #eef3ef;
     -fx-background-radius: 10px;
 }
 

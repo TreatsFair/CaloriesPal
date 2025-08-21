@@ -11,7 +11,7 @@
 <AnchorPane prefHeight="650.0" prefWidth="1200.0" styleClass="background" stylesheets="@../../styles/login.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="caloriespal.view.RegisterController">
     <children>
 
-        <Pane layoutX="697.0" layoutY="70.0" prefHeight="470.0" prefWidth="407.0" styleClass="login-pane" stylesheets="@../../styles/login.css">
+        <Pane layoutX="697.0" layoutY="80.0" prefHeight="470.0" prefWidth="407.0" styleClass="login-pane" stylesheets="@../../styles/login.css">
             <children>
                 <Label layoutX="132.0" layoutY="34.0" styleClass="form-title" text="Register" textAlignment="CENTER">
                     <font>

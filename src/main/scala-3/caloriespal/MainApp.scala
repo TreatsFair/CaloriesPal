@@ -7,6 +7,7 @@ import scalafx.application.JFXApp3
 import scalafx.application.JFXApp3.PrimaryStage
 import scalafx.scene.Scene
 import scalafx.Includes.*
+import scalafx.scene.image.Image
 import scalafx.stage.Modality.ApplicationModal
 import scalafx.stage.Stage
 import scalafx.scene.text.Font
@@ -27,12 +28,10 @@ object MainApp extends JFXApp3:
     Font.loadFont(getClass.getResource("/fonts/Cygre-Regular.ttf").toExternalForm, 14)
     stage = new PrimaryStage():
       title = "CaloriesPal"
+      icons += new Image(getClass.getResource("/images/logo.png").toExternalForm)
       scene = new Scene:
         root = rootLayout
     showLogin() // Show login screen first
-
-    //      stylesheets = Seq(getClass.getResource("/styles.css").toExternalForm)
-
 
   /** Show the login screen */
   def showLogin(): Unit =

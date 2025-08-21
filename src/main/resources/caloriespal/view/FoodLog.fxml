@@ -19,7 +19,7 @@
     <children>
         <Separator layoutY="81.0" prefHeight="3.0" prefWidth="990.0" />
         <Text layoutX="434.0" layoutY="55.0" styleClass="foodlog-title" text="Food Log" />
-      <VBox layoutX="25.0" layoutY="134.0" prefHeight="496.0" prefWidth="940.0" styleClass="card-logs">
+      <VBox layoutX="25.0" layoutY="134.0" prefHeight="502.0" prefWidth="940.0" styleClass="card-logs">
          <children>
               <Group>
                   <children>
@@ -91,15 +91,21 @@
             </buttons>
         </ButtonBar>
         <Pane layoutX="67.0" layoutY="498.0" />
-        <HBox alignment="CENTER_LEFT" layoutX="39.0" layoutY="90.0" spacing="10">
+        <HBox alignment="CENTER_LEFT" layoutX="44.0" layoutY="97.0" spacing="10">
             <children>
                 <Text styleClass="circle-text2" text="Date:" />
-                <DatePicker fx:id="exerciseDatePicker" />
+                <DatePicker fx:id="datePicker" />
                 <Button fx:id="todayBtn" onAction="#handleToday" styleClass="today-button" text="Today">
                     <padding>
                         <Insets left="5.0" right="5.0" top="-0.5" />
                     </padding>
                 </Button>
+            <HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="54.0" spacing="8">
+               <children>
+                  <Button fx:id="prevDayBtn" onAction="#handlePrevDay" prefHeight="30.0" prefWidth="25.0" styleClass="buttonNavigate" text="◀" />
+                  <Button fx:id="nextDayBtn11" onAction="#handleNextDay" prefHeight="30.0" prefWidth="25.0" styleClass="buttonNavigate" text="▶" />
+               </children>
+            </HBox>
             </children>
         </HBox>
     </children>

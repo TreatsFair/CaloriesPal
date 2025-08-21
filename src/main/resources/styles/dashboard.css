@@ -10,7 +10,7 @@
 }
 
 .title {
-    -fx-font-family: "Cygre";
+    -fx-font-family: "Black Mango";
     -fx-font-size: 28px;
 }
 
@@ -29,7 +29,7 @@
 
 .card {
     -fx-font-family: "Cygre";
-    -fx-background-color: #e8f5e9;
+    -fx-background-color: #ecf4ed;
     -fx-background-radius: 30px;
     -fx-border-radius: 30px;
     -fx-padding: 15px;
@@ -39,7 +39,8 @@
 
 .card2 {
     -fx-font-family: "Cygre";
-    -fx-background-color: #ced5d0;
+    /*-fx-background-color: #ced5d0;*/
+    -fx-background-color: #eef3ef;
     -fx-background-radius: 30px;
     -fx-border-radius: 30px;
     -fx-padding: 15px;
@@ -62,4 +63,13 @@
     -fx-font-family: "Cygre";
     -fx-font-size: 15px;
     -fx-padding: 10px;
+}
+
+.main-content {
+    -fx-background-image: url("/images/plainbackground.png");
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center center;
+    -fx-pref-width: 100%;
+    -fx-pref-height: 100%;
 }

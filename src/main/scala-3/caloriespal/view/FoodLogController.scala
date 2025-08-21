@@ -75,7 +75,15 @@ class FoodLogController {
   }
 
   @FXML def handleToday(): Unit =
-    datePicker.setValue(LocalDate.now())
+    if (datePicker != null) datePicker.setValue(LocalDate.now())
+
+  @FXML def handlePrevDay(): Unit =
+    val current = Option(datePicker.getValue).getOrElse(LocalDate.now())
+    datePicker.setValue(current.minusDays(1))
+
+  @FXML def handleNextDay(): Unit =
+    val current = Option(datePicker.getValue).getOrElse(LocalDate.now())
+    datePicker.setValue(current.plusDays(1))
 
   private def getSelectedDate: java.sql.Date = {
     val localDate =
@@ -150,10 +158,18 @@ class FoodLogController {
 
   private def setupRemoveButton(): Unit = {
     removeButton.setOnAction(_ => {
-      confirmAndRemove(breakfastList)
-      confirmAndRemove(lunchList)
-      confirmAndRemove(dinnerList)
-      confirmAndRemove(snacksList)
+      // Only remove from the list that has a selected item
+      val lists = Seq(breakfastList, lunchList, dinnerList, snacksList)
+      val selectedList = lists.find(_.getSelectionModel.getSelectedItem != null)
+      selectedList match {
+        case Some(listView) => confirmAndRemove(listView)
+        case None =>
+          val alert = new Alert(AlertType.INFORMATION)
+          alert.setTitle("No Selection")
+          alert.setHeaderText(null)
+          alert.setContentText("Please select an item to delete.")
+          alert.showAndWait()
+      }
     })
   }
 
@@ -167,8 +183,11 @@ class FoodLogController {
       val result = alert.showAndWait()
       if (result.isPresent && result.get() == ButtonType.OK) {
         listView.getItems.remove(selectedItem)
+        // Clear selection after removal to prevent repeated alerts
+        listView.getSelectionModel.clearSelection()
       }
     }
+    // No else block needed here, handled in setupRemoveButton
   }
 
   private def showAlert(title: String, message: String): Unit = {

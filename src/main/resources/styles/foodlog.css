@@ -24,7 +24,8 @@
 }
 
 .card-logs {
-    -fx-background-color: #ffffff;
+    /*-fx-background-color: #ffffff;*/
+    -fx-background-color: #eef3ef;
     -fx-background-radius: 10px;
     -fx-border-color: #cfd8dc;
     -fx-border-width: 1px;
@@ -77,7 +78,7 @@
 .food-submit-button {
     -fx-font-family: "Cygre";
     -fx-font-size: 14px;
-    -fx-background-color: #34c13b;
+    -fx-background-color: #56b359;
     -fx-text-fill: white;
     -fx-background-radius: 5px;
     -fx-border-radius: 5px;
@@ -118,14 +119,38 @@
 }
 
 .circle-text2 {
-    -fx-font-size: 14px;
+    -fx-font-family: "Black Mango";
+    -fx-font-size: 18px;
     -fx-text-fill: #555;
+    -fx-font-weight: bold;
 }
 
+.buttonNavigate {
+    -fx-font-family: "Cygre";
+    -fx-font-size: 10px;
+    -fx-background-color: #a7b1a7;
+    -fx-text-fill: white;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-cursor: hand;
+}
+
+.buttonNavigate:hover {
+    -fx-background-color: #7a8c7a;
+}
 
 /* Error text */
 .error-text {
     -fx-font-size: 12px;
     -fx-text-fill: red;
     -fx-font-style: italic;
+}
+
+.main-content {
+    -fx-background-image: url("/images/plainbackground.png");
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center center;
+    -fx-pref-width: 100%;
+    -fx-pref-height: 100%;
 }

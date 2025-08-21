@@ -2,80 +2,73 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<Pane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="caloriespal.view.ProfileController">
+<AnchorPane prefHeight="650.0" prefWidth="990.0" styleClass="main-content" stylesheets="@../../styles/profile.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="caloriespal.view.ProfileController">
    <children>
-      <VBox alignment="TOP_LEFT" prefHeight="650.0" prefWidth="990.0" spacing="20" styleClass="main-content" stylesheets="@../../styles/profile.css">
-      
-                      <padding>
-              <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
-          </padding>
-         <Text fx:id="titleText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="My Profile" translateX="410.0" translateY="-8.0">
-            <VBox.margin>
-               <Insets />
-            </VBox.margin>
-         </Text>
-         <VBox prefHeight="434.0" prefWidth="905.0">
-            <children>
-               <GridPane prefHeight="357.0" prefWidth="864.0" stylesheets="@../../styles/profile.css">
-                 <columnConstraints>
-                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="841.0" minWidth="10.0" prefWidth="64.0" />
-                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="787.0" minWidth="10.0" prefWidth="269.0" />
-                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="787.0" minWidth="10.0" prefWidth="463.0" />
-                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="787.0" minWidth="10.0" prefWidth="134.0" />
-                 </columnConstraints>
-                 <rowConstraints>
-                   <RowConstraints />
-                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                 </rowConstraints>
-                  <children>
-                     <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="info-text" text="Username" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                     <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="info-text" text="Height" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                     <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="info-text" text="Weight (kg)" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                     <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="info-text" text="Gender" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                     <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="info-text" text="Date of Birth" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                     <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="info-text" text="Location" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                     <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                     <TextField fx:id="usernameField" prefHeight="25.0" prefWidth="463.0" styleClass="input-field" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                     <TextField fx:id="heightField" promptText="Enter height (cm)" styleClass="input-field" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                     <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="info-text" text="Weight Goal" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                     <TextField fx:id="locationField" promptText="Enter location" styleClass="input-field" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-                     <TextField fx:id="dobField" promptText="Enter DOB (DD.MM.YYYY)" styleClass="input-field" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-                     <TextField fx:id="genderField" promptText="Enter gender (Male/Female)" styleClass="input-field" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-                     <TextField fx:id="weightField" promptText="Enter weight (kg)" styleClass="input-field" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                     <TextField fx:id="goalField" promptText="Enter weight goal (kg)" styleClass="input-field" GridPane.columnIndex="2" GridPane.rowIndex="7" />
-                  </children>
-               </GridPane>
-            
-                            <Button fx:id="editButton" defaultButton="true" onAction="#handleEditClick" styleClass="edit-button" text="Edit" translateX="735.0">
-                  <padding>
-                     <Insets left="10.0" right="10.0" />
-                  </padding>
-                  <VBox.margin>
-                     <Insets top="15.0" />
-                  </VBox.margin>
-               </Button>
-            </children>
-            <VBox.margin>
-               <Insets top="20.0" />
-            </VBox.margin>
-         </VBox>
-      
-                  </VBox>
-      <Separator layoutY="81.0" prefHeight="4.0" prefWidth="990.0" />
+      <Separator layoutY="81.0" prefHeight="3.0" prefWidth="990.0" />
+      <VBox layoutX="98.0" layoutY="102.0" prefHeight="479.0" prefWidth="794.0" styleClass="card-logs">
+         <children>
+            <GridPane prefHeight="388.0" prefWidth="692.0" stylesheets="@../../styles/profile.css">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="841.0" minWidth="0.0" prefWidth="63.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="787.0" minWidth="10.0" prefWidth="176.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="787.0" minWidth="10.0" prefWidth="441.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="787.0" minWidth="10.0" prefWidth="65.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="info-text" text="Username" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="info-text" text="Height" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="info-text" text="Weight (kg)" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="info-text" text="Gender" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="info-text" text="Date of Birth" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="info-text" text="Location" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                  <TextField fx:id="usernameField" prefHeight="25.0" prefWidth="463.0" styleClass="input-field" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <TextField fx:id="heightField" promptText="Enter height (cm)" styleClass="input-field" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="info-text" text="Weight Goal" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                  <TextField fx:id="locationField" promptText="Enter location" styleClass="input-field" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+                  <TextField fx:id="dobField" promptText="Enter DOB (DD.MM.YYYY)" styleClass="input-field" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                  <TextField fx:id="genderField" promptText="Enter gender (Male/Female)" styleClass="input-field" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                  <TextField fx:id="weightField" promptText="Enter weight (kg)" styleClass="input-field" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                  <TextField fx:id="goalField" promptText="Enter weight goal (kg)" styleClass="input-field" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+               </children>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </GridPane>
+            <ButtonBar prefHeight="40.0" prefWidth="710.0">
+               <buttons>
+                  <Button fx:id="editButton" contentDisplay="RIGHT" defaultButton="true" onAction="#handleEditClick" prefHeight="30.0" prefWidth="60.0" styleClass="edit-button" text="Edit" textAlignment="CENTER">
+                     <padding>
+                        <Insets left="10.0" right="10.0" />
+                     </padding>
+                  </Button>
+               </buttons>
+               <VBox.margin>
+                  <Insets right="80.0" top="10.0" />
+               </VBox.margin>
+            </ButtonBar>
+         </children>
+      </VBox>
+      <Text fx:id="titleText" layoutX="434.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="My Profile" />
    </children>
-</Pane>
+</AnchorPane>
