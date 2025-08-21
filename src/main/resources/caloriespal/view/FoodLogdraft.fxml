@@ -1,38 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="650.0" prefWidth="990.0" styleClass="main-content" stylesheets="@../../styles/dashboard.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="caloriespal.view.FoodLogController">
+<AnchorPane prefHeight="650.0" prefWidth="990.0" styleClass="main-content" stylesheets="@../../styles/foodlog.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="caloriespal.view.FoodLogController">
     <children>
         <Separator layoutY="81.0" prefHeight="3.0" prefWidth="990.0" />
-        <Text layoutX="56.0" layoutY="63.0" text="Food Log" />
-        <TextField fx:id="foodSearchList" accessibleRole="LIST_VIEW" layoutX="569.0" layoutY="38.0" prefWidth="400.0" promptText="Search for food..." />
-        <VBox layoutX="17.0" layoutY="92.0" prefHeight="547.0" prefWidth="955.0" spacing="20.0">
-            <!-- Breakfast Section -->
-            <Text text="Breakfast" />
-            <ListView fx:id="breakfastList" prefHeight="80.0" prefWidth="932.0" />
-            <Button fx:id="addBreakfastBtn" onAction="#onAddBreakfast" text="Add Food to Breakfast" />
-            <Separator prefWidth="990.0" />
-            <!-- Lunch Section -->
-            <Text text="Lunch" />
-            <ListView fx:id="lunchList" prefHeight="80.0" />
-            <Button fx:id="addLunchBtn" onAction="#onAddLunch" text="Add Food to Lunch" />
-            <Separator prefWidth="990.0" />
-            <!-- Dinner Section -->
-            <Text text="Dinner" />
-            <ListView fx:id="dinnerList" prefHeight="80.0" />
-            <Button fx:id="addDinnerBtn" onAction="#onAddDinner" text="Add Food to Dinner" />
-            <Separator prefWidth="990.0" />
-            <!-- Snacks Section -->
-            <Text text="Snacks" />
-            <ListView fx:id="snacksList" prefHeight="80.0" />
-            <Button fx:id="addSnacksBtn" onAction="#onAddSnacks" text="Add Food to Snacks" />
+        <Text layoutX="60.0" layoutY="59.0" styleClass="foodlog-title" text="Food Log" />
+        <Group layoutX="60.0" layoutY="123.0">
+            <children>
+                <VBox prefHeight="488.0" prefWidth="400.0" spacing="8.0">
+                    <children>
+                        <TitledPane animated="false" collapsible="false" prefHeight="165.0" prefWidth="337.0" styleClass="foodlog-cards" text="Breakfast">
+                            <content>
+                                <ListView fx:id="breakfastList" maxHeight="131.0" minHeight="19.0" prefHeight="131.0" prefWidth="398.0" styleClass="foodlog-text" />
+                            </content>
+                        </TitledPane>
+                        <Button fx:id="addBreakfastBtn" mnemonicParsing="false" prefHeight="30.0" prefWidth="142.0" styleClass="food-submit-button" text="Add to Breakfast">
+                            <VBox.margin>
+                                <Insets />
+                            </VBox.margin></Button>
+                        <TitledPane animated="false" collapsible="false" prefHeight="165.0" prefWidth="926.0" styleClass="foodlog-cards" text="Dinner">
+                            <VBox.margin>
+                                <Insets top="45.0" />
+                            </VBox.margin>
+                            <content>
+                                <ListView fx:id="dinnerList" maxHeight="130.0" minHeight="24.0" prefHeight="130.0" prefWidth="398.0" />
+                            </content>
+                        </TitledPane>
+                        <Button fx:id="addDinnerBtn" styleClass="food-submit-button" text="Add to Dinner" />
+                    </children>
+                </VBox>
+                <VBox layoutX="471.0" prefHeight="492.0" prefWidth="400.0" spacing="8.0">
+                    <children>
+                        <TitledPane animated="false" collapsible="false" prefHeight="165.0" prefWidth="926.0" styleClass="foodlog-cards" text="Lunch">
+                            <content>
+                                <ListView fx:id="lunchList" maxHeight="131.0" minHeight="24.0" prefHeight="131.0" prefWidth="398.0" styleClass="foodlog-text" />
+                            </content>
+                            <VBox.margin>
+                                <Insets />
+                            </VBox.margin>
+                        </TitledPane>
+                        <Button fx:id="addLunchBtn" styleClass="food-submit-button" text="Add to Lunch" />
+                        <TitledPane animated="false" collapsible="false" prefHeight="165.0" prefWidth="926.0" styleClass="foodlog-cards" text="Snacks">
+                            <content>
+                                <ListView fx:id="snacksList" maxHeight="131.0" minHeight="24.0" prefHeight="131.0" prefWidth="398.0" styleClass="foodlog-text" />
+                            </content>
+                            <VBox.margin>
+                                <Insets top="45.0" />
+                            </VBox.margin>
+                        </TitledPane>
+                        <Button fx:id="addSnacksBtn" styleClass="food-submit-button" text="Add to Snacks" />
+                    </children>
+                </VBox>
+            </children>
+        </Group>
+        <VBox alignment="TOP_RIGHT" layoutX="565.0" layoutY="29.0" prefHeight="105.0" prefWidth="361.0" spacing="5.0">
+            <children>
+                <TextField fx:id="searchField" prefHeight="32.0" prefWidth="351.0" promptText="🔍 Search for food..." styleClass="search-field" />
+                <ListView fx:id="foodSearchList" prefHeight="66.0" prefWidth="420.0" styleClass="search-results" visible="false" />
+            </children>
         </VBox>
+        <ButtonBar layoutX="744.0" layoutY="567.0" prefHeight="40.0" prefWidth="182.0">
+            <buttons>
+                <Button fx:id="removeButton" mnemonicParsing="false" styleClass="food-delete-button" text="Delete" />
+                <Button fx:id="saveButton" mnemonicParsing="false" styleClass="food-submit-button" text="Save" />
+            </buttons>
+        </ButtonBar>
+        <Pane layoutX="67.0" layoutY="498.0" />
+        <HBox alignment="CENTER_LEFT" layoutX="60.0" layoutY="88.0" spacing="10">
+            <children>
+                <Text styleClass="circle-text2" text="Date:" />
+                <DatePicker fx:id="exerciseDatePicker" />
+                <Button fx:id="todayBtn" onAction="#handleToday" styleClass="today-button" text="Today">
+                    <padding>
+                        <Insets left="5.0" right="5.0" top="-0.5" />
+                    </padding>
+                </Button>
+            </children>
+        </HBox>
     </children>
 </AnchorPane>

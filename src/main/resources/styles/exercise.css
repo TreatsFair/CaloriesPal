@@ -1,4 +1,4 @@
-/* General styles for the food log view */
+/* General styles for the exercise view */
 .root {
     -fx-font-family: "Cygre";
     -fx-text-fill: #333;
@@ -6,7 +6,7 @@
 }
 
 /* Title text */
-.foodlog-title {
+.title {
     -fx-font-family: "Black Mango";
     -fx-font-size: 28px;
     -fx-text-fill: #2e7d32;
@@ -14,16 +14,7 @@
 }
 
 /* Card styles */
-.foodlog-cards {
-    -fx-background-color: #ffffff;
-    -fx-border-color: #cfd8dc;
-    -fx-border-width: 1px;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0.5, 0, 2);
-    -fx-font-family: "Cygre";
-    -fx-font-size: 16px;
-}
-
-.card-logs {
+.card, .card2 {
     -fx-background-color: #ffffff;
     -fx-background-radius: 10px;
     -fx-border-color: #cfd8dc;
@@ -40,30 +31,37 @@
     -fx-font-weight: bold;
 }
 
-/* ListView styles */
-.foodlog-text, .search-results {
-    -fx-font-family: "Cygre";
+/* Circle text styles */
+.circle-text {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2e7d32;
+}
+
+.circle-text2 {
     -fx-font-size: 14px;
+    -fx-text-fill: #555;
+}
+
+/* Table styles */
+.table-view {
     -fx-background-color: #f9f9f9;
     -fx-border-color: #ddd;
     -fx-border-radius: 5px;
+}
+
+.table-view .column-header {
+    -fx-background-color: #e0e0e0;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+}
+
+.table-view .cell {
     -fx-text-fill: #555;
 }
 
-.foodlog-text .list-cell, .search-results .list-cell {
-    -fx-text-fill: #555;
-}
-
-/* Search field */
-.search-field {
-    -fx-font-family: "Cygre";
-    -fx-font-size: 14px;
-    -fx-background-radius: 5px;
-    -fx-border-radius: 5px;
-    -fx-background-color: #fff;
-    -fx-border-color: #bab9b9;
-}
-.today-button {
+/* Buttons */
+.button {
     -fx-font-family: "Cygre";
     -fx-font-size: 14px;
     -fx-background-color: #66bb6a;
@@ -73,21 +71,37 @@
     -fx-cursor: hand;
 }
 
-/* Buttons */
-.food-submit-button {
+.buttonSave {
     -fx-font-family: "Cygre";
     -fx-font-size: 14px;
-    -fx-background-color: #34c13b;
+    -fx-background-color: #66bb6a;
     -fx-text-fill: white;
     -fx-background-radius: 5px;
     -fx-border-radius: 5px;
     -fx-cursor: hand;
-    -fx-font-weight: bold;
-    -fx-pref-width: 130px;
-    -fx-pref-height: 28px;
 }
 
-.food-delete-button {
+.buttonNavigate {
+    -fx-font-family: "Cygre";
+    -fx-font-size: 14px;
+    -fx-background-color: #9ba59b;
+    -fx-text-fill: white;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-cursor: hand;
+}
+
+.buttonClear {
+    -fx-font-family: "Cygre";
+    -fx-font-size: 14px;
+    -fx-background-color: #7e7e7e;
+    -fx-text-fill: white;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-cursor: hand;
+}
+
+.buttonDelete {
     -fx-font-family: "Cygre";
     -fx-font-size: 14px;
     -fx-background-color: #ff0000;
@@ -95,33 +109,36 @@
     -fx-background-radius: 5px;
     -fx-border-radius: 5px;
     -fx-cursor: hand;
-    -fx-font-weight: bold;
-    -fx-pref-width: 120px;
-    -fx-pref-height: 28px;
 }
 
-.food-submit-button:disabled {
+
+.button:hover {
+    -fx-background-color: #43a047;
+}
+
+.buttonSave:hover {
+    -fx-background-color: #43a047;
+}
+
+
+/* Disabled button */
+.button:disabled {
     -fx-background-color: #e0e0e0;
     -fx-text-fill: #aaa;
 }
 
-.food-submit-button:hover {
-    -fx-background-color: #43a047;
+
+.buttonClear:hover {
+    -fx-background-color: #616161;
 }
 
-.ButtonBar {
-    -fx-font-family: "Cygre";
-    -fx-font-size: 14px;
-    -fx-background-radius: 5px;
-    -fx-border-radius: 5px;
-    -fx-cursor: hand;
+.buttonNavigate:hover {
+    -fx-background-color: #7a8c7a;
 }
 
-.circle-text2 {
-    -fx-font-size: 14px;
-    -fx-text-fill: #555;
+.buttonDelete:hover {
+    -fx-background-color: #d32f2f;
 }
-
 
 /* Error text */
 .error-text {

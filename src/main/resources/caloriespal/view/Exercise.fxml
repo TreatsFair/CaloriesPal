@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="650.0" prefWidth="990.0" stylesheets="@../../styles/exercise.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="caloriespal.view.ExerciseController">
+
+    <children>
+      <Separator layoutY="81.0" prefHeight="3.0" prefWidth="990.0" />
+
+        <!-- Title -->
+        <Text layoutX="434.0" layoutY="55.0" styleClass="title" text="Exercise" />
+
+        <!-- Top bar: date + total -->
+        <HBox layoutX="46.0" layoutY="94.0" spacing="20">
+            <children>
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <children>
+                        <Text styleClass="card-title" text="Date:" />
+                        <DatePicker fx:id="exerciseDatePicker" />
+                        <Button fx:id="todayBtn" onAction="#handleToday" text="Today">
+                     <padding>
+                        <Insets left="5.0" right="5.0" top="-0.5" />
+                     </padding>
+                  </Button>
+                    </children>
+                </HBox>
+            </children>
+        </HBox>
+
+        <!-- Main content: Form (left) + Table (right) -->
+        <HBox layoutX="25.0" layoutY="139.0" prefHeight="468.0" prefWidth="940.0" spacing="20">
+
+            <!-- Form card -->
+            <VBox prefWidth="360.0" spacing="14" styleClass="card">
+                <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
+                <children>
+                    <Text styleClass="card-title" text="Add / Edit Exercise" />
+                    <GridPane hgap="10" vgap="10">
+                        <columnConstraints>
+                            <ColumnConstraints prefWidth="110" />
+                            <ColumnConstraints prefWidth="210" />
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints prefHeight="30" />
+                            <RowConstraints prefHeight="30" />
+                            <RowConstraints prefHeight="30" />
+                            <RowConstraints prefHeight="30" />
+                            <RowConstraints prefHeight="60" />
+                        </rowConstraints>
+
+                        <children>
+                            <Text styleClass="circle-text2" text="Name" GridPane.rowIndex="0" />
+                            <TextField fx:id="nameField" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                            <Text styleClass="circle-text2" text="Category" GridPane.rowIndex="1" />
+                            <ComboBox fx:id="categoryCombo" prefHeight="25.0" prefWidth="210.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                <items>
+                                    <FXCollections fx:factory="observableArrayList">
+                                        <String fx:value="Cardio" />
+                                        <String fx:value="Strength" />
+                                        <String fx:value="Sports" />
+                                        <String fx:value="Mobility" />
+                                        <String fx:value="Other" />
+                                    </FXCollections>
+                                </items>
+                            </ComboBox>
+
+                            <Text styleClass="circle-text2" text="Duration (min)" GridPane.rowIndex="2" />
+                            <TextField fx:id="durationField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                            <Text styleClass="circle-text2" text="Calories (kcal)" GridPane.rowIndex="3" />
+                            <TextField fx:id="caloriesField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                            <Text styleClass="circle-text2" text="Notes" GridPane.rowIndex="4" />
+                            <TextArea fx:id="notesArea" prefRowCount="3" promptText="Optional" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        </children>
+                    </GridPane>
+
+                    <HBox prefWidth="330.0" spacing="10">
+                        <children>
+                            <Button fx:id="addBtn" defaultButton="true" onAction="#handleAdd" prefHeight="25.0" prefWidth="59.0" text="Add" />
+                            <Button fx:id="updateBtn" disable="true" onAction="#handleUpdate" text="Update" />
+                            <Button fx:id="deleteBtn" disable="true" onAction="#handleDelete" styleClass="buttonDelete" text="Delete" />
+                            <Button fx:id="clearBtn" onAction="#handleClear" prefWidth="59.0" styleClass="buttonClear" text="Clear" />
+                        </children>
+                  <VBox.margin>
+                     <Insets top="10.0" />
+                  </VBox.margin>
+                    </HBox>
+
+                    <!-- Inline validation/error text -->
+                    <Text fx:id="errorText" styleClass="error-text" text="" />
+                </children>
+            </VBox>
+
+            <!-- Table card -->
+            <VBox prefWidth="560.0" spacing="10" styleClass="card2">
+                <padding><Insets bottom="20" left="20" right="20" top="20" /></padding>
+                <children>
+                    <Text styleClass="card-title" text="Today's Exercises" />
+                    <TableView fx:id="exerciseTable" prefHeight="352.0" prefWidth="508.0">
+                        <columns>
+                            <TableColumn fx:id="colName" prefWidth="149.0" text="Name" />
+                            <TableColumn fx:id="colCategory" prefWidth="123.0" text="Category" />
+                            <TableColumn fx:id="colDuration" prefWidth="117.0" text="Duration (min)" />
+                            <TableColumn fx:id="colCalories" prefWidth="125.0" text="Calories (kcal)" />
+                        </columns>
+                    </TableView>
+
+                    <HBox alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="185.0" spacing="8">
+                        <children>
+         
+                               <HBox alignment="CENTER_LEFT" prefHeight="26.0" prefWidth="364.0" spacing="8">
+                             <children>
+                                 <Text styleClass="circle-text2" text="Total Burned:" />
+                                 <Text fx:id="totalBurnedText" styleClass="circle-text" text="0 kcal" />
+                             </children>
+                         </HBox>
+                            <Button fx:id="prevDayBtn" onAction="#handlePrevDay" prefWidth="74.0" styleClass="buttonNavigate" text="◀ Back" />
+                            <Button fx:id="nextDayBtn" onAction="#handleNextDay" prefWidth="74.0" styleClass="buttonNavigate" text="Next ▶" />
+                        </children>
+                    </HBox>
+                </children>
+            </VBox>
+
+        </HBox>
+
+    </children>
+</AnchorPane>

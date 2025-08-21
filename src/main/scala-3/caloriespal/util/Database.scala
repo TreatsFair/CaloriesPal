@@ -3,6 +3,7 @@ package caloriespal.util
 import scalikejdbc._
 import caloriespal.model.User
 import caloriespal.model.FoodLog
+import caloriespal.model.ExerciseLog
 
 trait Database {
   val derbyDriverClassname = "org.apache.derby.jdbc.EmbeddedDriver"
@@ -18,6 +19,7 @@ object Database extends Database {
     if (!hasDBInitialized) {
       User.initializeTable()
       FoodLog.initializeTable()
+      ExerciseLog.initializeTable()
     }
   }
 

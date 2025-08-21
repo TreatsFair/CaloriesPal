@@ -2,7 +2,7 @@ package caloriespal.view
 
 import caloriespal.model.User
 import javafx.fxml.FXML
-import javafx.scene.control.{Alert, Button, ButtonType, ListCell, ListView, TextField}
+import javafx.scene.control.{Alert, Button, ButtonType, DatePicker, ListCell, ListView, TextField}
 import javafx.scene.layout.{HBox, Priority, Region}
 import com.github.tototoshi.csv.{CSVReader, defaultCSVFormat}
 import javafx.scene.text.Text
@@ -36,7 +36,7 @@ class FoodLogController {
   @FXML private var addSnacksBtn: Button = _
   @FXML private var saveButton: Button = _
   @FXML private var removeButton: Button = _
-  @FXML private var datePicker: javafx.scene.control.DatePicker = _
+  @FXML private var datePicker: DatePicker = _
 
   case class FoodItem(
                        name: String,
@@ -73,6 +73,9 @@ class FoodLogController {
       }
     }
   }
+
+  @FXML def handleToday(): Unit =
+    datePicker.setValue(LocalDate.now())
 
   private def getSelectedDate: java.sql.Date = {
     val localDate =

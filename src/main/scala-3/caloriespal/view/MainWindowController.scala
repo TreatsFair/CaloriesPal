@@ -12,8 +12,7 @@ class MainWindowController:
   @FXML private var mainContentArea: StackPane = _
   @FXML private var dashboardButton: Button = _
   @FXML private var foodLogButton: Button = _
-//  @FXML private var progressButton: Button = _
-  @FXML private var workoutButton: Button = _
+  @FXML private var exerciseButton: Button = _
   @FXML private var profileButton: Button = _
   @FXML private var logoutButton: Button = _
 //  @FXML private var welcomeLabel: Label = _
@@ -21,8 +20,7 @@ class MainWindowController:
   private val allNavButtons = Seq(
     () => dashboardButton,
     () => foodLogButton,
-//    () => progressButton,
-    () => workoutButton,
+    () => exerciseButton,
     () => profileButton
   )
 
@@ -57,15 +55,10 @@ class MainWindowController:
     val foodLogRoot = loader.load[Parent]()
     mainContentArea.getChildren.setAll(foodLogRoot)
 
-//  def loadProgressContent(): Unit =
-//    val loader = new FXMLLoader(getClass.getResource("/caloriespal/view/Progress.fxml"))
-//    val progressRoot = loader.load[Parent]()
-//    mainContentArea.getChildren.setAll(progressRoot)
-
-  def loadWorkoutContent(): Unit =
-    val loader = new FXMLLoader(getClass.getResource("/caloriespal/view/Workout.fxml"))
-    val workoutRoot = loader.load[Parent]()
-    mainContentArea.getChildren.setAll(workoutRoot)
+  def loadExerciseContent(): Unit =
+    val loader = new FXMLLoader(getClass.getResource("/caloriespal/view/Exercise.fxml"))
+    val exerciseRoot = loader.load[Parent]()
+    mainContentArea.getChildren.setAll(exerciseRoot)
 
   @FXML def handleDashboardClick(): Unit =
     clearActiveStyles()
@@ -82,10 +75,10 @@ class MainWindowController:
 //    progressButton.getStyleClass.add("active")
 //    loadProgressContent()
 
-  @FXML def handleWorkoutClick(): Unit =
+  @FXML def handleExerciseClick(): Unit =
     clearActiveStyles()
-    workoutButton.getStyleClass.add("active")
-    loadWorkoutContent()
+    exerciseButton.getStyleClass.add("active")
+    loadExerciseContent()
 
   @FXML def handleProfileClick(): Unit =
     clearActiveStyles()

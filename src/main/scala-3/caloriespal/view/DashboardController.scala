@@ -5,6 +5,7 @@ import javafx.scene.control.Label
 import javafx.scene.shape.Circle
 import caloriespal.model.User
 import caloriespal.model.FoodLog
+import caloriespal.model.ExerciseLog
 import caloriespal.util.Database.session
 
 import java.time.LocalDate
@@ -27,7 +28,8 @@ class DashboardController:
   @FXML private var snacksCaloriesText: Text = _
   @FXML private var weightTargetLabel: Text = _
   @FXML private var bmiTargetLabel: Text = _
-  
+  @FXML private var caloriesBurntText: Text = _
+
   @FXML private var proteinCircle: Circle = _
   @FXML private var carbsCircle: Circle = _
   @FXML private var fatCircle: Circle = _
@@ -87,6 +89,7 @@ class DashboardController:
       // Today’s food logs
       val today = Date.valueOf(LocalDate.now())
       val logs = FoodLog.findByUserAndDate(user.email, today)
+      val exerciseLogs = ExerciseLog.findByUserAndDate(user.email, today)
 
       val breakfastCalories = logs.filter(_.category == "Breakfast").map(_.calories).sum
       val lunchCalories = logs.filter(_.category == "Lunch").map(_.calories).sum
@@ -99,11 +102,15 @@ class DashboardController:
       snacksCaloriesText.setText(f"$snacksCalories%.0f kcal")
 
       val caloriesTaken = breakfastCalories + lunchCalories + dinnerCalories + snacksCalories
-      val caloriesRemaining = caloriesTarget - caloriesTaken
+      val caloriesBurnt = exerciseLogs.map(_.calories).sum
+
+      caloriesTakenText.setText(f"$caloriesTaken%.0f kcal")
+      caloriesBurntText.setText(f"$caloriesBurnt%.0f kcal")
+
+      val caloriesRemaining = caloriesTarget - caloriesTaken + caloriesBurnt
 
       caloriesTargetLabel.setText(f"$caloriesTarget%.0f kcal")
       caloriesNeededLabel.setText(f"$caloriesRemaining%.0f kcal")
-      caloriesTakenText.setText(f"$caloriesTaken%.0f kcal")
 
     { // calories progress circle
       val r = progressCircle.getRadius
@@ -111,7 +118,7 @@ class DashboardController:
 
       progressCircle.getStrokeDashArray.setAll(java.lang.Double.valueOf(circumference))
       val safeTarget = if (caloriesTarget > 0) caloriesTarget else 1.0
-      val progress = math.max(0.0, math.min(caloriesTaken / safeTarget, 1.0))
+      val progress = math.max(0.0, math.min((caloriesTaken - caloriesBurnt) / safeTarget, 1.0))
       progressCircle.setStrokeDashOffset(circumference * (1 - progress))
       progressCircle.setRotate(-90)
     }

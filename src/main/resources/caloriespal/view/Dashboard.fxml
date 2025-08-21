@@ -70,7 +70,7 @@
                      </VBox.margin>
                   </Text>
                   <Text styleClass="circle-text" text="Exercise" />
-                  <Text fx:id="caloriesTakenText2" styleClass="circle-text" text="0 kcal">
+                  <Text fx:id="caloriesBurntText" styleClass="circle-text" text="0 kcal">
                      <VBox.margin>
                         <Insets top="-10.0" />
                      </VBox.margin>
@@ -86,7 +86,7 @@
             <VBox alignment="CENTER" spacing="10" />
          </children>
       </HBox>
-      <Text layoutX="46.0" layoutY="53.0" styleClass="title" text="Dashboard" />
+      <Text layoutX="434.0" layoutY="55.0" styleClass="title" text="Dashboard" />
       <VBox layoutX="580.0" layoutY="101.0" prefHeight="291.0" prefWidth="356.0" styleClass="card2" translateX="-15.0">
          <children>
             <Line endX="224.0" opacity="0.14" startX="-100.0" strokeLineCap="BUTT" strokeLineJoin="BEVEL" strokeWidth="0.5" translateY="245.0">
@@ -393,7 +393,7 @@
             </GridPane>
          </children>
       </VBox>
-      <HBox layoutX="550.0" layoutY="427.0" prefHeight="170.0" prefWidth="386.0" styleClass="card">
+      <HBox layoutX="550.0" layoutY="427.0" prefHeight="185.0" prefWidth="386.0" styleClass="card">
          <children>
             <GridPane prefHeight="140.0" prefWidth="389.0">
               <columnConstraints>
@@ -423,7 +423,7 @@
             </GridPane>
          </children>
       </HBox>
-      <HBox layoutX="46.0" layoutY="427.0" prefHeight="170.0" prefWidth="461.0" styleClass="card2">
+      <HBox layoutX="46.0" layoutY="427.0" prefHeight="185.0" prefWidth="461.0" styleClass="card2">
          <children>
             <GridPane prefHeight="140.0" prefWidth="426.0">
                <columnConstraints>
