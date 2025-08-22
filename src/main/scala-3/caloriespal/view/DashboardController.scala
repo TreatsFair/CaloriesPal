@@ -180,16 +180,19 @@ class DashboardController:
       circle.setStrokeDashOffset(C * (1 - startFrac))
 
   private def calculateBMI(weight: Double, height: Int, gender: String): (Double, String) =
-    val bmi = if height > 0 then weight / Math.pow(height / 100.0, 2) else 0.0
-    val bmiMessage = gender match
-      case "female" =>
-        if bmi < 18.5 then "Underweight"
-        else if bmi < 24.9 then "Normal"
-        else if bmi < 29.9 then "Overweight"
-        else "Obese"
-      case _ =>
-        if bmi < 18.5 then "Underweight"
-        else if bmi < 24.9 then "Normal"
-        else if bmi < 29.9 then "Overweight"
-        else "Obese"
-    (bmi, bmiMessage)
+    if weight <= 0 || height <= 0 then
+      (0.0, "N/A")
+    else
+      val bmi = weight / Math.pow(height / 100.0, 2)
+      val bmiMessage = gender match
+        case "female" =>
+          if bmi < 18.5 then "Underweight"
+          else if bmi < 24.9 then "Normal"
+          else if bmi < 29.9 then "Overweight"
+          else "Obese"
+        case _ =>
+          if bmi < 18.5 then "Underweight"
+          else if bmi < 24.9 then "Normal"
+          else if bmi < 29.9 then "Overweight"
+          else "Obese"
+      (bmi, bmiMessage)

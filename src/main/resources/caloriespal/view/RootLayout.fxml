@@ -21,7 +21,10 @@
           </Menu>
           <Menu text="_Help">
             <items>
-              <MenuItem onAction="#handleAbout" text="_About" />
+              <MenuItem onAction="#handleAbout" text="_About">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="H" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator></MenuItem>
             </items>
           </Menu>
         </menus>

@@ -56,18 +56,17 @@ object MainApp extends JFXApp3:
       val about = getClass.getResource("/caloriespal/view/About.fxml")
       val loader = new FXMLLoader(about)
       loader.load()
-      val pane = loader.getRoot[javafx.scene.layout.AnchorPane]() // get the anchor pane from the loader
-      // then create ur own window
+      val pane = loader.getRoot[javafx.scene.layout.AnchorPane]()
       val mywindow = new Stage():
-        initOwner(stage) // set the owner of the window to the main stage
+        initOwner(stage)
         initModality(ApplicationModal)
         title = "About"
         icons += new Image(getClass.getResource("/images/logo.png").toExternalForm)
         scene = new Scene():
           root = pane
       val ctrl = loader.getController[AboutController]()
-      ctrl.stage = Option(mywindow) // set the stage in the controller
-      mywindow.showAndWait() // show the window and wait for it to close
+      ctrl.stage = Option(mywindow)
+      mywindow.showAndWait()
       ctrl.okClicked
 
 
