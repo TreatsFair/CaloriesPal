@@ -6,7 +6,6 @@ import caloriespal.MainApp
 
 @FXML
 class RootLayoutController():
-  // Close the application
   @FXML
   def handleClose(action: ActionEvent): Unit =
     System.exit(0)

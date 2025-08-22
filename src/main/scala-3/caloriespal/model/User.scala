@@ -2,7 +2,7 @@ package caloriespal.model
 
 import scalikejdbc._
 import caloriespal.util.Database
-import scala.util.{Try, Success, Failure}
+import scala.util.{Try}
 
 case class User(
                  email: String,

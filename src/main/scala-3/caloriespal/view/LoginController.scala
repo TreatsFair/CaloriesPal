@@ -1,15 +1,10 @@
 package caloriespal.view
 
 import caloriespal.model.User
-import caloriespal.util.Database
 import caloriespal.MainApp
-import javafx.event.ActionEvent
 import javafx.fxml.FXML
 import javafx.scene.control.{Alert, PasswordField, TextField}
 import javafx.scene.control.Alert.AlertType
-import javafx.util.Duration
-import scalafx.animation.PauseTransition
-import scalikejdbc.*
 
 import scala.util.{Failure, Success}
 

@@ -11,12 +11,9 @@ import scalafx.scene.image.Image
 import scalafx.stage.Modality.ApplicationModal
 import scalafx.stage.Stage
 import scalafx.scene.text.Font
-
 import java.net.URL
 
 object MainApp extends JFXApp3:
-  
-  //global rootPane variable
   var rootPane: Option[javafx.scene.layout.BorderPane] = None
   override def start(): Unit =
     Database.setupDB()
@@ -31,36 +28,28 @@ object MainApp extends JFXApp3:
       icons += new Image(getClass.getResource("/images/logo.png").toExternalForm)
       scene = new Scene:
         root = rootLayout
-    showLogin() // Show login screen first
+    showLogin()
 
-  /** Show the login screen */
+
   def showLogin(): Unit =
     val loginResource = getClass.getResource("/caloriespal/view/Login.fxml")
     val loginLoader = new FXMLLoader(loginResource)
     val pane = loginLoader.load[javafx.scene.layout.AnchorPane]()
     rootPane.foreach(_.setCenter(pane))
 
-  /** Show the register screen */
+
   def showRegister(): Unit =
     val registerResource = getClass.getResource("/caloriespal/view/Register.fxml")
     val registerLoader = new FXMLLoader(registerResource)
     val pane = registerLoader.load[javafx.scene.layout.AnchorPane]()
     rootPane.foreach(_.setCenter(pane))
 
-  /** After login success, go to main dashboard */
+
   def showMainWindow(): Unit =
     val mainResource = getClass.getResource("/caloriespal/view/MainWindow.fxml")
     val mainLoader = new FXMLLoader(mainResource)
     val pane = mainLoader.load[javafx.scene.layout.BorderPane]()
     rootPane.foreach(_.setCenter(pane))
-
-
-  // show welcome window in the center of the root pane
-//  def showWelcome(): Unit =
-//    val welcome = getClass.getResource("/caloriespal/view/Welcome.fxml")
-//    val welcomeLoader = new FXMLLoader(welcome)
-//    val pane = welcomeLoader.load[javafx.scene.layout.AnchorPane]()
-//    rootPane.foreach(_.setCenter(pane)) // Set the center of the root pane to the welcome view
 
 
   def showAbout(): Boolean =
@@ -73,6 +62,7 @@ object MainApp extends JFXApp3:
         initOwner(stage) // set the owner of the window to the main stage
         initModality(ApplicationModal)
         title = "About"
+        icons += new Image(getClass.getResource("/images/logo.png").toExternalForm)
         scene = new Scene():
           root = pane
       val ctrl = loader.getController[AboutController]()

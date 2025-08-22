@@ -187,7 +187,6 @@ class ExerciseController:
         deleteBtn.setStyle("-fx-background-color: #ff0000; -fx-text-fill: white;")
         updateBtn.setDisable(false)
     else if selectedLog.isDefined then
-      // Delete logic with confirmation
       val log = selectedLog.get
       val alert = new Alert(Alert.AlertType.CONFIRMATION)
       alert.setTitle("Delete Exercise")
@@ -207,7 +206,7 @@ class ExerciseController:
         deleteBtn.setStyle("-fx-background-color: #ff0000; -fx-text-fill: white;")
         isEditing = false
     else
-      showAlert("Error", "No exercise selected.") // Use pop-up for no selection
+      showAlert("Error", "No exercise selected.") 
 
   @FXML def handleClear(): Unit =
     clearForm()
@@ -226,7 +225,7 @@ class ExerciseController:
     setFieldsEditable(true)
     isEditing = false
     errorText.setText("")
-    addBtn.setDisable(false) // Enable add after clearing
+    addBtn.setDisable(false) 
 
   private def fillForm(log: ExerciseLog): Unit =
     nameField.setText(log.name)

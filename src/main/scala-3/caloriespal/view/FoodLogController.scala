@@ -7,20 +7,17 @@ import javafx.scene.layout.{HBox, Priority, Region}
 import com.github.tototoshi.csv.{CSVReader, defaultCSVFormat}
 import javafx.scene.text.Text
 import javafx.geometry.Pos
-
 import java.time.LocalDate
 import java.sql.Date
 import caloriespal.model.FoodLog
-
 import scala.jdk.CollectionConverters.*
 import java.io.InputStreamReader
 import javafx.beans.value.{ChangeListener, ObservableValue}
-import javafx.collections.{FXCollections, ListChangeListener}
+import javafx.collections.{ListChangeListener}
 import javafx.application.Platform
 import scalikejdbc.DB
-import scalikejdbc.AutoSession
 import caloriespal.util.Database.session
-import javafx.scene.control.Alert.AlertType // <-- Add this import for implicit session
+import javafx.scene.control.Alert.AlertType
 
 class FoodLogController {
 
@@ -183,11 +180,9 @@ class FoodLogController {
       val result = alert.showAndWait()
       if (result.isPresent && result.get() == ButtonType.OK) {
         listView.getItems.remove(selectedItem)
-        // Clear selection after removal to prevent repeated alerts
         listView.getSelectionModel.clearSelection()
       }
     }
-    // No else block needed here, handled in setupRemoveButton
   }
 
   private def showAlert(title: String, message: String): Unit = {
@@ -328,13 +323,6 @@ class FoodLogController {
       allFoodItems.find(_.name == selectedFood).foreach { item =>
         val display = f"${item.name} (${item.calories}%.0f kcal)"
         targetList.getItems.add(display)
-
-        // Optional: debug print
-//        println(s"Added to $targetList: ${item.name}")
-//        println(f"  Calories: ${item.calories}%.1f kcal")
-//        println(f"  Protein: ${item.protein}%.1f g")
-//        println(f"  Carbs: ${item.carbs}%.1f g")
-//        println(f"  Fat: ${item.fat}%.1f g")
       }
     }
   }

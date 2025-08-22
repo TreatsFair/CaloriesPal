@@ -1,13 +1,11 @@
 package caloriespal.view
 
 import javafx.fxml.FXML
-import javafx.scene.control.Label
 import javafx.scene.shape.Circle
 import caloriespal.model.User
 import caloriespal.model.FoodLog
 import caloriespal.model.ExerciseLog
 import caloriespal.util.Database.session
-
 import java.time.LocalDate
 import java.time.Period
 import caloriespal.util.DateUtil.parseLocalDate

@@ -1,6 +1,7 @@
 package caloriespal.model
 
 import scalikejdbc._
+import caloriespal.util.Database
 
 case class FoodLog(
                     id: Option[Long] = None,
@@ -14,7 +15,7 @@ case class FoodLog(
                     logDate: java.sql.Date
                   )
 
-object FoodLog extends SQLSyntaxSupport[FoodLog] {
+object FoodLog extends SQLSyntaxSupport[FoodLog] with Database {
   override val tableName = "FoodLog"
   def apply(rs: WrappedResultSet): FoodLog = FoodLog(
     Some(rs.long("id")),

@@ -20,7 +20,7 @@
             <Separator prefWidth="200.0" />
                 <Text style="-fx-font-family: 'Cygre'; -fx-font-size: 16px; -fx-text-fill: #333;" text="How to use:" wrappingWidth="560.0" />
             <Text style="-fx-font-family: 'Cygre'; -fx-font-size: 16px; -fx-text-fill: #333;" text="1) Log in or register to create an account." wrappingWidth="560.0" />
-            <Text style="-fx-font-family: 'Cygre'; -fx-font-size: 16px; -fx-text-fill: #333;" text="2) Navigate through the menu  to access dashboard, food logs, exercise logs and profile." wrappingWidth="560.0" />
+            <Text style="-fx-font-family: 'Cygre'; -fx-font-size: 16px; -fx-text-fill: #333;" text="2) Navigate through the menu to access dashboard, food logs, exercise logs and profile." wrappingWidth="560.0" />
             <Text style="-fx-font-family: 'Cygre'; -fx-font-size: 16px; -fx-text-fill: #333;" text="3) Enter relevant details at profile and weight goal for a more accurate measure." wrappingWidth="560.0" />
             <Text style="-fx-font-family: 'Cygre'; -fx-font-size: 16px; -fx-text-fill: #333;" text="4) Add, update or delete entries to keep your data up-to-date." wrappingWidth="560.0" />
             <Text style="-fx-font-family: 'Cygre'; -fx-font-size: 16px; -fx-text-fill: #333;" text="5) Monitor current and past progress and adjust goals as needed." wrappingWidth="560.0" />

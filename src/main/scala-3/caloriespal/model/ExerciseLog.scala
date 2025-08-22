@@ -1,6 +1,7 @@
 package caloriespal.model
 
 import scalikejdbc._
+import caloriespal.util.Database
 
 case class ExerciseLog(
                         id: Option[Long] = None,
@@ -13,7 +14,7 @@ case class ExerciseLog(
                         notes: Option[String] = None
                       )
 
-object ExerciseLog extends SQLSyntaxSupport[ExerciseLog] {
+object ExerciseLog extends SQLSyntaxSupport[ExerciseLog] with Database {
   override val tableName = "ExerciseLog"
 
   def apply(rs: WrappedResultSet): ExerciseLog = ExerciseLog(

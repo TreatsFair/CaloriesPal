@@ -1,7 +1,6 @@
 package caloriespal.view
 
 import caloriespal.MainApp
-import caloriespal.model.User
 import javafx.fxml.{FXML, FXMLLoader}
 import javafx.scene.Parent
 import javafx.scene.control.{Button, Label}
@@ -15,7 +14,6 @@ class MainWindowController:
   @FXML private var exerciseButton: Button = _
   @FXML private var profileButton: Button = _
   @FXML private var logoutButton: Button = _
-//  @FXML private var welcomeLabel: Label = _
 
   private val allNavButtons = Seq(
     () => dashboardButton,
@@ -25,15 +23,7 @@ class MainWindowController:
   )
 
   @FXML def initialize(): Unit =
-    // Show the user’s name (optional)
-//    User.currentUser.foreach(user =>
-//      welcomeLabel.setText(s"Hello, ${user.userName}!")
-//    )
-
-    // load dashboard as initial content
     loadDashboardContent()
-
-    // Set Dashboard button as active
     clearActiveStyles()
     dashboardButton.getStyleClass.add("active")
 
@@ -69,11 +59,6 @@ class MainWindowController:
     clearActiveStyles()
     foodLogButton.getStyleClass.add("active")
     loadFoodLogContent()
-
-//  @FXML def handleProgressClick(): Unit =
-//    clearActiveStyles()
-//    progressButton.getStyleClass.add("active")
-//    loadProgressContent()
 
   @FXML def handleExerciseClick(): Unit =
     clearActiveStyles()
