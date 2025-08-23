@@ -1,7 +1,7 @@
 package caloriespal.model
 
-import scalikejdbc._
 import caloriespal.util.Database
+import scalikejdbc.*
 
 case class FoodLog(
                     id: Option[Long] = None,
