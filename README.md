@@ -67,4 +67,4 @@ Academic Session: April 2025
 
 ---
 
-This project was developed as part of the Object Oriented Programming course, showcasing the practical application of OOP principles in game development.
+This project was developed as part of the Object Oriented Programming course, showcasing the practical application of OOP principles.
